@@ -1,0 +1,24 @@
+[
+  {
+    "id": "acc_sample_1",
+    "username": "yx_parser_main",
+    "status": "active",
+    "proxy": "185.220.101.5:8080:user:pass",
+    "sessionExists": true,
+    "lastCheckedAt": "2026-09-14T02:00:00.000Z",
+    "notes": "Основной донорский аккаунт с прогретой сессией",
+    "createdAt": "2026-09-01T10:00:00.000Z",
+    "updatedAt": "2026-09-14T02:00:00.000Z"
+  },
+  {
+    "id": "acc_sample_2",
+    "username": "beat_scout_02",
+    "status": "needs_auth",
+    "proxy": "",
+    "sessionExists": false,
+    "lastCheckedAt": "2026-09-12T15:30:00.000Z",
+    "notes": "Резервный аккаунт для поиска рэп-сообществ",
+    "createdAt": "2026-09-05T12:00:00.000Z",
+    "updatedAt": "2026-09-12T15:30:00.000Z"
+  }
+]

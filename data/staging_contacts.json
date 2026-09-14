@@ -1,0 +1,50 @@
+[
+  {
+    "id": "stg_1",
+    "username": "krestall_courier",
+    "fullName": "KRESTALL / Courier",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    "followersCount": 48200,
+    "followingCount": 350,
+    "postsCount": 142,
+    "bio": "Hip-Hop / Alternative / Trap artist. Booking & Feats in DM 📩 New single out now",
+    "links": ["https://band.link/courier", "https://t.me/krestall_official"],
+    "sourceTarget": "fastfoodmusic",
+    "category": "artist",
+    "parsedAt": "2026-09-14T01:15:00.000Z",
+    "status": "new",
+    "notes": "Отмечен в посте о новом альбоме"
+  },
+  {
+    "id": "stg_2",
+    "username": "flame_prod808",
+    "fullName": "Alex Flame (808 Mafia style)",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    "followersCount": 18900,
+    "followingCount": 420,
+    "postsCount": 310,
+    "bio": "Multi-platinum sound producer. Placements: OBLADAET, SALUKI. Collabs & loops DM",
+    "links": ["https://beatstars.com/flame808"],
+    "sourceTarget": "theflowru",
+    "category": "producer",
+    "parsedAt": "2026-09-14T01:18:00.000Z",
+    "status": "new",
+    "notes": "Часто репостит сниппеты битов"
+  },
+  {
+    "id": "stg_3",
+    "username": "velvet_mirage",
+    "fullName": "Velvet Mirage",
+    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+    "followersCount": 24500,
+    "followingCount": 290,
+    "postsCount": 88,
+    "bio": "Dark R&B / Cloud Trap vocalist & songwriter. In search of fresh instrumentals",
+    "links": ["https://soundcloud.com/velvetmirage"],
+    "sourceTarget": "genius_russia",
+    "category": "artist",
+    "parsedAt": "2026-09-14T01:22:00.000Z",
+    "status": "new",
+    "notes": "Ищет мрачные атмосферные биты"
+  }
+]

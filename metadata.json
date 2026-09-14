@@ -1,0 +1,8 @@
+{
+  "name": "YX CRM",
+  "description": "Music Producer CRM, Sales Pipeline \u0026 Analytics Suite",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
