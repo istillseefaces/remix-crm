@@ -1,27 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  Users,
-  Database,
-  Play,
-  Square,
-  Settings2,
-  Plus,
-  Shield,
-  ShieldCheck,
-  ShieldAlert,
-  Trash2,
-  FileSpreadsheet,
-  Download,
-  ExternalLink,
-  Instagram,
-  RefreshCw,
-  Terminal,
-  CheckCircle2,
-  AlertTriangle,
-  Info,
-  XCircle,
-  Sparkles,
-} from 'lucide-react';
+import { Database, Play, Square, Shield, ShieldCheck, ShieldAlert, FileSpreadsheet, ExternalLink, Instagram, RefreshCw, Terminal, CheckCircle2, AlertTriangle, Info, XCircle, Sparkles } from 'lucide-react';
+import { Users, Settings2, Plus, Trash2, Download } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 import { ParserAccount, StagingContact } from '../types';
 import { ParserAccountModal } from './ParserAccountModal';
@@ -521,7 +500,7 @@ export const ParserView: React.FC = () => {
                             type="button"
                             onClick={() => excludeStagingContact(contact.id)}
                             title={t.excludeContact}
-                            className="p-1.5 rounded-lg text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                            className="ios-icon-action is-destructive p-1.5 rounded-lg text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -637,7 +616,7 @@ export const ParserView: React.FC = () => {
                         deleteParserAccount(account.id);
                       }
                     }}
-                    className="p-2 rounded-xl text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                    className="ios-icon-action is-destructive p-2 rounded-xl text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
                     title="Удалить"
                   >
                     <Trash2 className="w-4 h-4" />

@@ -1,15 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  Users,
-  Briefcase,
-  Settings as SettingsIcon,
-  Download,
-  Plus,
-  Search,
-  Sparkles,
-  Command,
-} from 'lucide-react';
+import { Briefcase, Settings as SettingsIcon, Search, Sparkles, Command } from 'lucide-react';
+import { Users, Download, Plus } from './InterfaceIcons';
 
 export const MacTitleBar: React.FC = () => {
   const {

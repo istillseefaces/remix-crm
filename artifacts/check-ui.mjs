@@ -6,6 +6,11 @@ const errors = [];
 page.on('pageerror', e => errors.push(e.message));
 await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
 await page.screenshot({ path: 'artifacts/artists-light.png', fullPage: true });
+await page.locator('.ios-segment').nth(1).click();
+await page.waitForTimeout(650);
+await page.screenshot({ path: 'artifacts/trash-switch.png', fullPage: true });
+if (await page.locator('.ios-segment').nth(1).getAttribute('aria-pressed') !== 'true') throw new Error('Trash view did not activate');
+await page.locator('.ios-segment').first().click();
 console.log('Initial theme:', await page.locator('html').getAttribute('class'));
 for (const tab of ['deals', 'analytics', 'parser']) {
   await page.locator('.studio-nav-item').nth(['artists', 'deals', 'analytics', 'parser'].indexOf(tab)).click();

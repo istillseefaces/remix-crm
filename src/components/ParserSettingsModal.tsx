@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
-import { X, Play, Square, Settings2, Sliders, Shield, Users, Radio } from 'lucide-react';
+import { Play, Square, Sliders, Shield, Radio } from 'lucide-react';
+import { X, Settings2, Users } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 import { ParserConfig } from '../types';
 

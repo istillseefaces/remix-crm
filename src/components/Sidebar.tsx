@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useApp } from '../context/AppContext';
-import { Download, Settings } from 'lucide-react';
+import { Settings } from 'lucide-react';
+import { Download } from './InterfaceIcons';
 import { nativeTransition } from './NativeMotion';
 
 export const Sidebar: React.FC = () => {

@@ -2,7 +2,8 @@ import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { X, Plus, Tag } from 'lucide-react';
+import { Tag } from 'lucide-react';
+import { X, Plus } from './InterfaceIcons';
 import { ConnectStatus, SalesStatus, ArtistStatus, DemoStatus, ReactionStatus } from '../types';
 import { CustomDropdown } from './CustomDropdown';
 import { DatePicker } from './DatePicker';
@@ -117,7 +118,7 @@ export const ArtistModal: React.FC = () => {
           </div>
           <button
             onClick={handleClose}
-            className={`p-1.5 rounded-lg transition cursor-pointer ${
+            className={`ios-icon-action p-1.5 rounded-lg transition cursor-pointer ${
               isLight
                 ? 'hover:bg-black/[0.05] text-zinc-400 hover:text-zinc-800'
                 : 'hover:bg-white/[0.08] text-zinc-400 hover:text-white'
@@ -334,7 +335,7 @@ export const ArtistModal: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => handleRemoveTag(tag)}
-                    className="text-zinc-400 hover:text-red-500 cursor-pointer"
+                    className="ios-icon-action text-zinc-400 hover:text-red-500 cursor-pointer"
                   >
                     <X className="w-3 h-3" />
                   </button>

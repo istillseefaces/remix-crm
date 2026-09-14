@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  Plus,
-  Trash2,
-  Edit2,
-  Check,
-  X,
-  RefreshCw,
-  Sparkles,
-  AlertTriangle,
-} from 'lucide-react';
+import { Check, RefreshCw, Sparkles, AlertTriangle } from 'lucide-react';
+import { Plus, Trash2, Edit2, X } from './InterfaceIcons';
 import { BADGE_COLOR_PALETTES, getBadgeColorClass } from '../utils/customOptions';
 import { BadgeColor, DropdownOption, OptionCategory } from '../types';
 import { ConfirmModal } from './ConfirmModal';

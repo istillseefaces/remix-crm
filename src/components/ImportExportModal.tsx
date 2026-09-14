@@ -2,17 +2,8 @@ import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState, useRef } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  X,
-  FileSpreadsheet,
-  Download,
-  Upload,
-  CheckCircle,
-  AlertCircle,
-  FileText,
-  Layers,
-  ArrowDownToLine,
-} from 'lucide-react';
+import { FileSpreadsheet, Upload, CheckCircle, AlertCircle, FileText, Layers, ArrowDownToLine } from 'lucide-react';
+import { X, Download } from './InterfaceIcons';
 import {
   exportArtistsToExcel,
   exportDealsToExcel,
@@ -144,7 +135,7 @@ export const ImportExportModal: React.FC = () => {
           </div>
           <button
             onClick={() => setIsImportExportOpen(false)}
-            className={`p-1.5 rounded-lg transition ${
+            className={`ios-icon-action p-1.5 rounded-lg transition ${
               isLight
                 ? 'text-zinc-400 hover:text-zinc-800 hover:bg-black/[0.05]'
                 : 'text-zinc-400 hover:text-white hover:bg-white/[0.08]'

@@ -2,23 +2,8 @@ import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useRef, useState } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  X,
-  Globe,
-  Database,
-  Download,
-  Upload,
-  Trash2,
-  RefreshCw,
-  CheckCircle,
-  Sun,
-  Moon,
-  DollarSign,
-  SlidersHorizontal,
-  Plus,
-  Tag,
-  AlertTriangle,
-} from 'lucide-react';
+import { Globe, Database, Upload, RefreshCw, CheckCircle, Sun, Moon, DollarSign, SlidersHorizontal, Tag, AlertTriangle } from 'lucide-react';
+import { X, Download, Trash2, Plus } from './InterfaceIcons';
 import { exportToJsonFile, parseImportFile } from '../utils/exportUtils';
 import { ConfirmModal } from './ConfirmModal';
 import { OptionManager } from './OptionManager';
@@ -167,7 +152,7 @@ export const SettingsModal: React.FC = () => {
 
             <button
               onClick={() => setIsSettingsOpen(false)}
-              className={`p-1.5 rounded-md transition cursor-pointer ${
+              className={`ios-icon-action p-1.5 rounded-md transition cursor-pointer ${
                 isLight
                   ? 'hover:bg-black/[0.06] text-zinc-500 hover:text-black'
                   : 'hover:bg-white/[0.08] text-zinc-400 hover:text-white'

@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useApp } from '../context/AppContext';
-import { Search, Plus, Sun, Moon } from 'lucide-react';
+import { Search, Sun, Moon } from 'lucide-react';
+import { Plus } from './InterfaceIcons';
 import { nativeTransition } from './NativeMotion';
 
 export const MainHeader: React.FC = () => {

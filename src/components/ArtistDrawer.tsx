@@ -3,24 +3,8 @@ import { NativeBackdrop, NativePanel } from './NativeMotion';
 import type { Artist } from '../types';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  X,
-  Instagram,
-  Send,
-  Mail,
-  Phone,
-  MessageSquare,
-  Calendar,
-  DollarSign,
-  Plus,
-  Trash2,
-  ExternalLink,
-  Tag,
-  Check,
-  Briefcase,
-  Sparkles,
-  Clock,
-} from 'lucide-react';
+import { Instagram, Send, Mail, Phone, MessageSquare, Calendar, DollarSign, ExternalLink, Tag, Check, Briefcase, Sparkles, Clock } from 'lucide-react';
+import { X, Plus, Trash2 } from './InterfaceIcons';
 import { ConnectStatus, SalesStatus, ArtistStatus, DemoStatus, ReactionStatus, Deal } from '../types';
 import { ConfirmModal } from './ConfirmModal';
 import { CustomDropdown } from './CustomDropdown';
@@ -196,7 +180,7 @@ const ArtistDrawerContent: React.FC<{ artist: Artist }> = ({ artist }) => {
               <button
                 type="button"
                 onClick={() => setIsDeleteConfirmOpen(true)}
-                className={`p-1.5 rounded-md transition ${
+                className={`ios-icon-action is-destructive p-1.5 rounded-md transition ${
                   isLight
                     ? 'hover:bg-red-100 text-zinc-400 hover:text-red-600'
                     : 'hover:bg-red-500/20 text-zinc-400 hover:text-red-400'
@@ -208,7 +192,7 @@ const ArtistDrawerContent: React.FC<{ artist: Artist }> = ({ artist }) => {
               <button
                 type="button"
                 onClick={() => setActiveArtistId(null)}
-                className={`p-1.5 rounded-md transition ${
+                className={`ios-icon-action p-1.5 rounded-md transition ${
                   isLight
                     ? 'hover:bg-black/[0.05] text-zinc-400 hover:text-zinc-800'
                     : 'hover:bg-white/[0.08] text-zinc-400 hover:text-white'
@@ -629,7 +613,7 @@ const ArtistDrawerContent: React.FC<{ artist: Artist }> = ({ artist }) => {
                     <button
                       type="button"
                       onClick={() => handleRemoveTag(tag)}
-                      className="text-zinc-400 hover:text-red-500 cursor-pointer"
+                      className="ios-icon-action text-zinc-400 hover:text-red-500 cursor-pointer"
                     >
                       <X className="w-3 h-3" />
                     </button>

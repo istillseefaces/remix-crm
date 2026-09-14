@@ -1,30 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
 import { AnalyticsSubTab, AnalyticsTimeRange, DealPlatform, Deal } from '../types';
-import {
-  BarChart3,
-  TrendingUp,
-  PieChart as PieIcon,
-  Layers,
-  ArrowRightLeft,
-  DollarSign,
-  Users,
-  Target,
-  Clock,
-  Sparkles,
-  Calendar,
-  Filter,
-  CheckCircle2,
-  AlertCircle,
-  HelpCircle,
-  Zap,
-  Briefcase,
-  ArrowUpRight,
-  TrendingDown,
-  CalendarDays,
-  ListFilter,
-  Activity,
-} from 'lucide-react';
+import { BarChart3, TrendingUp, PieChart as PieIcon, Layers, ArrowRightLeft, DollarSign, Target, Clock, Sparkles, Calendar, CheckCircle2, AlertCircle, HelpCircle, Zap, Briefcase, ArrowUpRight, TrendingDown, CalendarDays, ListFilter, Activity } from 'lucide-react';
+import { Users, Filter } from './InterfaceIcons';
 import {
   ResponsiveContainer,
   LineChart,

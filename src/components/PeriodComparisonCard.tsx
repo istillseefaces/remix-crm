@@ -1,21 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import {
-  CalendarRange,
-  TrendingUp,
-  TrendingDown,
-  Minus,
-  ArrowUpRight,
-  ArrowDownRight,
-  DollarSign,
-  Briefcase,
-  Users,
-  Target,
-  Zap,
-  Send,
-  HelpCircle,
-  Clock,
-  Sparkles,
-} from 'lucide-react';
+import { CalendarRange, TrendingUp, TrendingDown, Minus, ArrowUpRight, ArrowDownRight, DollarSign, Briefcase, Target, Zap, Send, HelpCircle, Clock, Sparkles } from 'lucide-react';
+import { Users } from './InterfaceIcons';
 import { Artist, Deal } from '../types';
 
 interface PeriodComparisonCardProps {

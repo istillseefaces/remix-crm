@@ -1,7 +1,8 @@
 import React from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useApp } from '../context/AppContext';
-import { CheckCircle2, AlertCircle, Info, Mail, X } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Info, Mail } from 'lucide-react';
+import { X } from './InterfaceIcons';
 import { nativeTransition } from './NativeMotion';
 
 export const Toast: React.FC = () => {

@@ -67,7 +67,7 @@ export const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
       onKeyDown={handleKeyDown}
       tabIndex={disabled ? -1 : 0}
       className={`
-        relative inline-flex items-center justify-center shrink-0 select-none cursor-pointer
+        ios-checkbox relative inline-flex items-center justify-center shrink-0 select-none cursor-pointer
         transition-all duration-150 focus:outline-none active:opacity-80
         ${sizeClasses}
         ${

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { Search, ChevronDown, Check, UserPlus, X, User } from 'lucide-react';
+import { Search, ChevronDown, Check, UserPlus, User } from 'lucide-react';
+import { X } from './InterfaceIcons';
 import { Artist } from '../types';
 
 interface ArtistComboboxProps {

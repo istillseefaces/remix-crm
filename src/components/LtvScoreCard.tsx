@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { Trophy, Crown, Award, Users, ArrowUpRight, Repeat, DollarSign } from 'lucide-react';
+import { Trophy, Crown, Award, ArrowUpRight, Repeat, DollarSign } from 'lucide-react';
+import { Users } from './InterfaceIcons';
 import { Artist, Deal } from '../types';
 
 interface LtvScoreCardProps {

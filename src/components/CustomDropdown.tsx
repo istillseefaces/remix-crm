@@ -3,7 +3,8 @@ import { createPortal } from 'react-dom';
 import { useApp } from '../context/AppContext';
 import { BadgeColor, DropdownOption, OptionCategory } from '../types';
 import { BADGE_COLOR_PALETTES, getBadgeColorClass } from '../utils/customOptions';
-import { Check, ChevronDown, Plus, Sparkles, X, Search, Trash2 } from 'lucide-react';
+import { Check, ChevronDown, Sparkles, Search } from 'lucide-react';
+import { Plus, X, Trash2 } from './InterfaceIcons';
 
 export interface CustomDropdownProps {
   value: string;

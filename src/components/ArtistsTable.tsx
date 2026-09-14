@@ -1,31 +1,10 @@
+import { ContactViewSwitch } from './ContactViewSwitch';
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useApp } from '../context/AppContext';
 import { Artist, ConnectStatus, SalesStatus, ArtistStatus, DemoStatus, ReactionStatus } from '../types';
-import {
-  Instagram,
-  Send,
-  Mail,
-  Calendar,
-  AlertCircle,
-  Sparkles,
-  Edit2,
-  Trash2,
-  Minus,
-  Plus,
-  Check,
-  X,
-  Clock,
-  ArrowUpDown,
-  GripVertical,
-  MessageSquare,
-  Copy,
-  RotateCcw,
-  Trash,
-  FilterX,
-  Users,
-  CalendarDays,
-} from 'lucide-react';
+import { Instagram, Send, Mail, Calendar, AlertCircle, Sparkles, Minus, Check, Clock, ArrowUpDown, GripVertical, MessageSquare, RotateCcw, FilterX, CalendarDays } from 'lucide-react';
+import { Edit2, Trash2, Plus, X, Copy, Trash, Users } from './InterfaceIcons';
 import { ConfirmModal } from './ConfirmModal';
 import { CustomCheckbox } from './CustomCheckbox';
 import { CustomDropdown } from './CustomDropdown';
@@ -437,52 +416,13 @@ export const ArtistsTable: React.FC = () => {
           >
             {/* View Mode Switcher */}
             <div className="flex items-center gap-2">
-              <div
-                className={`p-0.5 rounded-xl border flex items-center gap-1 ${
-                  isLight ? 'bg-white border-black/[0.08]' : 'bg-[var(--surface-secondary)] border-white/[0.08]'
-                }`}
-              >
-                <button
-                  onClick={() => setCrmViewMode('active')}
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-medium transition cursor-pointer text-xs ${
-                    crmViewMode === 'active'
-                      ? isLight
-                        ? 'bg-black text-white shadow-xs'
-                        : 'bg-white text-black shadow-xs font-semibold'
-                      : isLight
-                      ? 'text-zinc-600 hover:text-black hover:bg-black/[0.04]'
-                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
-                  }`}
-                >
-                  <Users className="w-3.5 h-3.5" />
-                  <span>{t.allContacts}</span>
-                </button>
-
-                <button
-                  onClick={() => setCrmViewMode('trash')}
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-medium transition cursor-pointer text-xs ${
-                    crmViewMode === 'trash'
-                      ? 'bg-red-500 text-white font-semibold shadow-xs shadow-red-500/20'
-                      : isLight
-                      ? 'text-zinc-600 hover:text-red-700 hover:bg-red-50'
-                      : 'text-zinc-400 hover:text-red-400 hover:bg-red-500/10'
-                  }`}
-                >
-                  <Trash2 className="w-3.5 h-3.5" />
-                  <span>{t.trashTitle}</span>
-                  {trashCount > 0 && (
-                    <span
-                      className={`px-1.5 py-0.2 rounded-full font-mono text-[10px] font-bold ${
-                        crmViewMode === 'trash'
-                          ? 'bg-white text-red-600'
-                          : 'bg-red-500/20 text-red-400'
-                      }`}
-                    >
-                      {trashCount}
-                    </span>
-                  )}
-                </button>
-              </div>
+              <ContactViewSwitch
+                value={crmViewMode}
+                onChange={setCrmViewMode}
+                contactsLabel={t.allContacts}
+                trashLabel={t.trashTitle}
+                trashCount={trashCount}
+              />
 
               {crmViewMode === 'trash' && (
                 <span
@@ -1309,7 +1249,7 @@ export const ArtistsTable: React.FC = () => {
 
                                   <button
                                     onClick={() => setActiveArtistId(artist.id)}
-                                    className={`p-1 rounded-md transition cursor-pointer ${
+                                    className={`ios-icon-action p-1 rounded-md transition cursor-pointer ${
                                       isLight
                                         ? 'hover:bg-black/[0.06] text-zinc-500 hover:text-black'
                                         : 'hover:bg-white/[0.08] text-white/40 hover:text-white'
@@ -1320,7 +1260,7 @@ export const ArtistsTable: React.FC = () => {
                                   </button>
                                   <button
                                     onClick={() => setArtistToDelete(artist)}
-                                    className="p-1 rounded-md hover:bg-red-500/20 text-red-500/70 hover:text-red-600 transition cursor-pointer"
+                                    className="ios-icon-action is-destructive p-1 rounded-md hover:bg-red-500/20 text-red-500/70 hover:text-red-600 transition cursor-pointer"
                                     title={t.delete}
                                   >
                                     <Trash2 className="w-3.5 h-3.5" />
@@ -1542,7 +1482,7 @@ export const ArtistsTable: React.FC = () => {
                   {/* Bulk Delete */}
                   <button
                     onClick={() => setIsBulkDeleteModalOpen(true)}
-                    className={`p-1.5 rounded-xl border transition cursor-pointer ml-1 ${
+                    className={`ios-icon-action is-destructive p-1.5 rounded-xl border transition cursor-pointer ml-1 ${
                       isLight
                         ? 'bg-red-50 hover:bg-red-100 text-red-700 border-red-200'
                         : 'bg-red-500/15 hover:bg-red-500/25 text-red-300 border-red-500/30'
@@ -1557,7 +1497,7 @@ export const ArtistsTable: React.FC = () => {
               {/* Clear Selection */}
               <button
                 onClick={clearArtistSelection}
-                className={`p-1.5 rounded-xl transition cursor-pointer ${
+                className={`ios-icon-action p-1.5 rounded-xl transition cursor-pointer ${
                   isLight
                     ? 'hover:bg-black/[0.06] text-zinc-500 hover:text-black'
                     : 'hover:bg-white/10 text-white/50 hover:text-white'

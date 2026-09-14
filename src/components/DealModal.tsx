@@ -2,7 +2,8 @@ import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { X, DollarSign, Briefcase } from 'lucide-react';
+import { DollarSign, Briefcase } from 'lucide-react';
+import { X } from './InterfaceIcons';
 import { DealPlatform, DealStage } from '../types';
 import { CustomDropdown } from './CustomDropdown';
 import { DatePicker } from './DatePicker';
@@ -122,7 +123,7 @@ export const DealModal: React.FC = () => {
           </div>
           <button
             onClick={handleClose}
-            className={`p-1.5 rounded-lg transition cursor-pointer ${
+            className={`ios-icon-action p-1.5 rounded-lg transition cursor-pointer ${
               isLight
                 ? 'hover:bg-black/[0.05] text-zinc-400 hover:text-zinc-800'
                 : 'hover:bg-white/[0.08] text-zinc-400 hover:text-white'

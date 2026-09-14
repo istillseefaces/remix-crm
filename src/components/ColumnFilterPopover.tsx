@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Filter, X, Check, Calendar } from 'lucide-react';
+import { Check, Calendar } from 'lucide-react';
+import { Filter, X } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 import { ColumnFiltersState } from '../types';
 

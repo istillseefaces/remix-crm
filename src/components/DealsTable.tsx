@@ -1,25 +1,8 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { Deal, DealStage, DealPlatform } from '../types';
-import {
-  DollarSign,
-  Instagram,
-  Send,
-  Mail,
-  MessageSquare,
-  Edit2,
-  Trash2,
-  Sparkles,
-  ArrowUpRight,
-  X,
-  Layers,
-  AlertCircle,
-  Calendar,
-  Clock,
-  ArrowUpDown,
-  GripVertical,
-  Check,
-} from 'lucide-react';
+import { DollarSign, Instagram, Send, Mail, MessageSquare, Sparkles, ArrowUpRight, Layers, AlertCircle, Calendar, Clock, ArrowUpDown, GripVertical, Check } from 'lucide-react';
+import { Edit2, Trash2, X } from './InterfaceIcons';
 import { ConfirmModal } from './ConfirmModal';
 import { CustomCheckbox } from './CustomCheckbox';
 import { CustomDropdown } from './CustomDropdown';
@@ -745,7 +728,7 @@ export const DealsTable: React.FC = () => {
 
                             <button
                               onClick={() => setActiveDealId(deal.id)}
-                              className={`p-1 rounded-md transition cursor-pointer ${
+                              className={`ios-icon-action p-1 rounded-md transition cursor-pointer ${
                                 isLight
                                   ? 'hover:bg-black/[0.06] text-zinc-500 hover:text-black'
                                   : 'hover:bg-white/[0.08] text-white/40 hover:text-white'
@@ -756,7 +739,7 @@ export const DealsTable: React.FC = () => {
                             </button>
                             <button
                               onClick={() => setDealToDelete(deal)}
-                              className="p-1 rounded-md hover:bg-red-500/20 text-red-500/70 hover:text-red-600 transition cursor-pointer"
+                              className="ios-icon-action is-destructive p-1 rounded-md hover:bg-red-500/20 text-red-500/70 hover:text-red-600 transition cursor-pointer"
                               title={t.delete}
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -872,7 +855,7 @@ export const DealsTable: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsBulkDeleteModalOpen(true)}
-                className={`p-1.5 rounded-xl border transition cursor-pointer ml-1 ${
+                className={`ios-icon-action is-destructive p-1.5 rounded-xl border transition cursor-pointer ml-1 ${
                   isLight
                     ? 'bg-red-50 hover:bg-red-100 text-red-700 border-red-200'
                     : 'bg-red-500/15 hover:bg-red-500/25 text-red-300 border-red-500/30'
@@ -886,7 +869,7 @@ export const DealsTable: React.FC = () => {
               <button
                 type="button"
                 onClick={clearDealSelection}
-                className={`p-1.5 rounded-xl transition cursor-pointer ${
+                className={`ios-icon-action p-1.5 rounded-xl transition cursor-pointer ${
                   isLight
                     ? 'hover:bg-black/[0.06] text-zinc-500 hover:text-black'
                     : 'hover:bg-white/10 text-white/50 hover:text-white'

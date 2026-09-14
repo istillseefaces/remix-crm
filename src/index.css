@@ -196,3 +196,31 @@ button.studio-metric:hover, .studio-metric.is-selected { background: var(--surfa
 .studio-empty > * { flex-shrink: 0; }
 .studio-empty > :first-child { margin-top: auto; box-shadow: none; border: none; background: transparent; }
 .studio-empty > :last-child { margin-bottom: auto; border-radius: 999px; box-shadow: none; }
+/* Shared optical weight and quiet iOS-style control surfaces. */
+.interface-symbol { flex-shrink: 0; vertical-align: middle; }
+.studio-app .lucide { stroke-width: 1.65; }
+.ios-segmented { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 12px; background: #e9e9ee; }
+.dark .ios-segmented { background: #141416; }
+.ios-segment { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 32px; padding: 0 13px; border-radius: 9px; color: var(--muted); font-size: 12px; font-weight: 500; white-space: nowrap; transition: color .3s ease; }
+.ios-segment:hover { color: var(--ink); }
+.ios-segment[aria-pressed="true"] { color: var(--ink); }
+.ios-segment[aria-pressed="true"] > .interface-symbol { color: var(--accent); }
+.ios-segment > .interface-symbol { transition: color .3s ease; }
+.ios-segment-selection { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--surface); box-shadow: 0 2px 5px #00000009, 0 0 0 .5px #00000004; }
+.dark .ios-segment-selection { background: #39393d; box-shadow: 0 1px 5px #00000018; }
+.ios-segment-count { min-width: 17px; height: 17px; display: grid; place-items: center; padding: 0 4px; border-radius: 50px; color: var(--muted); background: var(--surface-secondary); font-size: 10px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ios-checkbox { border-radius: 50%; border: 1px solid var(--line); background: transparent; transition: background-color .25s, border-color .25s; }
+.ios-checkbox[aria-checked="true"], .ios-checkbox[aria-checked="mixed"] { background: #007aff; border-color: #007aff; box-shadow: none; }
+.ios-checkbox:focus-visible { outline: 3px solid #007aff55; outline-offset: 3px; }
+.studio-icon-button { width: 32px; height: 32px; background: var(--surface-secondary); color: var(--muted); }
+.studio-icon-button:hover { background: var(--hover); color: var(--accent); }
+.studio-filters #open-filter-builder-btn { min-height: 32px; padding: 0 12px; gap: 6px; border: 0; background: var(--surface-secondary); color: var(--ink); }
+.studio-filters #open-filter-builder-btn > .interface-symbol { width: 17px; height: 17px; color: var(--accent); }
+.ios-icon-action { width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; padding: 6px; border-radius: 50%; background: var(--surface-secondary); color: var(--muted); transition: color .25s ease, background-color .25s ease; }
+.ios-icon-action:hover { color: var(--accent); background: var(--accent-soft); }
+.ios-icon-action.is-destructive { color: #d65b57; }
+.ios-icon-action.is-destructive:hover { color: #ff3b30; background: #ff3b300d; }
+@media (max-width: 760px) { .ios-segment { padding: 0 11px; font-size: 11px; } }
+.ios-checkbox[aria-checked="false"] { border-color: #b8b8c0; }
+.dark .ios-checkbox[aria-checked="false"] { border-color: #65656d; }
+.ios-checkbox[aria-checked="false"]:hover { border-color: var(--accent); }

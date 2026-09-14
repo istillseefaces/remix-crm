@@ -1,25 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  Filter,
-  X,
-  Plus,
-  Tag,
-  Clock,
-  UserCheck,
-  UserX,
-  Flame,
-  CheckCircle,
-  Zap,
-  ChevronDown,
-  Mail,
-  Copy,
-  AlertCircle,
-  Calendar,
-  Sparkles,
-  DollarSign,
-  XCircle,
-} from 'lucide-react';
+import { Tag, Clock, UserCheck, UserX, Flame, CheckCircle, Zap, ChevronDown, Mail, AlertCircle, Calendar, Sparkles, DollarSign, XCircle } from 'lucide-react';
+import { Filter, X, Plus, Copy } from './InterfaceIcons';
 import { QuickPreset, FilterCondition, FilterOperator, BadgeColor } from '../types';
 import { copyCleanEmailList } from '../utils/exportUtils';
 import { getBadgeColorClass } from '../utils/customOptions';

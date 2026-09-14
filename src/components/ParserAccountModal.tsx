@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
-import { X, Shield, Lock, Globe, FileText, User } from 'lucide-react';
+import { Shield, Lock, Globe, FileText, User } from 'lucide-react';
+import { X } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 import { ParserAccount } from '../types';
 

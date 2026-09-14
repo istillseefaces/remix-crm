@@ -1,14 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { useApp } from '../context/AppContext';
-import {
-  Calendar as CalendarIcon,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  X,
-  AlertCircle,
-} from 'lucide-react';
+import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, AlertCircle } from 'lucide-react';
+import { X } from './InterfaceIcons';
 import { formatDateRu, parseDateRu, getFollowUpStatus } from '../utils/customOptions';
 
 export interface DatePickerProps {

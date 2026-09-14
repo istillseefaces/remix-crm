@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
-import { X, UserPlus, CheckSquare, Square, Download, Instagram, Music } from 'lucide-react';
+import { UserPlus, CheckSquare, Square, Instagram, Music } from 'lucide-react';
+import { X, Download } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 
 interface ImportFromParserModalProps {

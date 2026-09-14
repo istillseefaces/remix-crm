@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'motion/react';
 import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React from 'react';
-import { AlertTriangle, Trash2, X } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
+import { Trash2, X } from './InterfaceIcons';
 import { useApp } from '../context/AppContext';
 
 interface ConfirmModalProps {
@@ -69,7 +70,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
 
           <button
             onClick={onClose}
-            className={`p-1 rounded-lg transition cursor-pointer ${
+            className={`ios-icon-action p-1 rounded-lg transition cursor-pointer ${
               isLight
                 ? 'hover:bg-black/[0.05] text-zinc-400 hover:text-black'
                 : 'hover:bg-white/[0.08] text-zinc-500 hover:text-white'
