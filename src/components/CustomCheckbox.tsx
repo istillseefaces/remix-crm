@@ -68,7 +68,7 @@ export const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
       tabIndex={disabled ? -1 : 0}
       className={`
         relative inline-flex items-center justify-center shrink-0 select-none cursor-pointer
-        transition-all duration-150 focus:outline-none active:scale-95
+        transition-all duration-150 focus:outline-none active:opacity-80
         ${sizeClasses}
         ${
           disabled

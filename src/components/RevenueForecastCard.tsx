@@ -69,7 +69,7 @@ export const RevenueForecastCard: React.FC<RevenueForecastCardProps> = ({
     <div
       className={`p-4 sm:p-5 rounded-2xl border flex flex-col justify-between relative transition-all duration-200 ${
         isLight
-          ? 'bg-[#F8F9FA] border-black/[0.06] shadow-xs'
+          ? 'bg-[var(--canvas)] border-black/[0.06] shadow-xs'
           : 'bg-[#151519] border-white/[0.04]'
       }`}
     >
@@ -87,7 +87,7 @@ export const RevenueForecastCard: React.FC<RevenueForecastCardProps> = ({
             <div>
               <h4
                 className={`text-sm font-semibold tracking-tight ${
-                  isLight ? 'text-[#1A1A1E]' : 'text-white'
+                  isLight ? 'text-[var(--ink)]' : 'text-white'
                 }`}
               >
                 {t.revenueForecastTitle || 'Прогноз выручки (Revenue Forecast)'}
@@ -103,7 +103,7 @@ export const RevenueForecastCard: React.FC<RevenueForecastCardProps> = ({
         <div className="grid grid-cols-2 gap-2 my-2">
           <div
             className={`p-2.5 rounded-xl border ${
-              isLight ? 'bg-white border-black/[0.05]' : 'bg-[#18181C] border-white/[0.04]'
+              isLight ? 'bg-white border-black/[0.05]' : 'bg-[var(--surface-secondary)] border-white/[0.04]'
             }`}
           >
             <div className="text-[10px] text-zinc-400 font-medium flex items-center gap-1 mb-1">
@@ -124,7 +124,7 @@ export const RevenueForecastCard: React.FC<RevenueForecastCardProps> = ({
 
           <div
             className={`p-2.5 rounded-xl border ${
-              isLight ? 'bg-white border-black/[0.05]' : 'bg-[#18181C] border-white/[0.04]'
+              isLight ? 'bg-white border-black/[0.05]' : 'bg-[var(--surface-secondary)] border-white/[0.04]'
             }`}
           >
             <div className="text-[10px] text-zinc-400 font-medium flex items-center gap-1 mb-1">

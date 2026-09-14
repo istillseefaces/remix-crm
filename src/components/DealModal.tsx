@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { X, DollarSign, Briefcase } from 'lucide-react';
@@ -54,7 +56,7 @@ export const DealModal: React.FC = () => {
   }, [editingDeal, isNewDealModalOpen]);
 
   const isOpen = isNewDealModalOpen || isEditing;
-  if (!isOpen) return null;
+
 
   const handleClose = () => {
     setIsNewDealModalOpen(false);
@@ -96,25 +98,25 @@ export const DealModal: React.FC = () => {
     handleClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
-      <div
-        className={`w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border animate-in zoom-in-95 duration-150 ${
+  return <AnimatePresence>{isOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
+      <NativePanel
+        className={`studio-dialog w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border animate-in zoom-in-95 duration-150 ${
           isLight
-            ? 'bg-white border-black/[0.08] text-[#1A1A1E]'
-            : 'bg-[#111113] border-white/[0.08] text-white'
+            ? 'bg-white border-black/[0.08] text-[var(--ink)]'
+            : 'bg-[var(--surface)] border-white/[0.08] text-white'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
           className={`px-5 py-4 border-b flex items-center justify-between ${
-            isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+            isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
           }`}
         >
           <div className="flex items-center gap-2">
             <Briefcase className="w-4 h-4 text-cyan-500" />
-            <h3 className={`text-sm font-semibold ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+            <h3 className={`text-sm font-semibold ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
               {isEditing ? t.editDealTitle : t.newDealTitle}
             </h3>
           </div>
@@ -198,7 +200,7 @@ export const DealModal: React.FC = () => {
                   className={`w-full pl-7 pr-3 py-2 font-mono font-semibold rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-cyan-500/60'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-cyan-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-cyan-500/40'
                   }`}
                 />
               </div>
@@ -233,7 +235,7 @@ export const DealModal: React.FC = () => {
               className={`w-full px-3 py-2 rounded-lg border focus:outline-none resize-y ${
                 isLight
                   ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-cyan-500/60'
-                  : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-cyan-500/40'
+                  : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-cyan-500/40'
               }`}
             />
           </div>
@@ -267,7 +269,7 @@ export const DealModal: React.FC = () => {
             </button>
           </div>
         </form>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

@@ -150,10 +150,10 @@ export const ArtistCombobox: React.FC<ArtistComboboxProps> = ({
           isOpen
             ? isLight
               ? 'bg-white border-cyan-500 ring-2 ring-cyan-500/20 shadow-sm'
-              : 'bg-[#18181C] border-cyan-400 ring-2 ring-cyan-400/20 shadow-lg'
+              : 'bg-[var(--surface-secondary)] border-cyan-400 ring-2 ring-cyan-400/20 shadow-lg'
             : isLight
             ? 'bg-white border-black/[0.1] hover:border-black/[0.2]'
-            : 'bg-[#18181C] border-white/[0.08] hover:border-white/[0.15]'
+            : 'bg-[var(--surface-secondary)] border-white/[0.08] hover:border-white/[0.15]'
         }`}
       >
         <Search
@@ -223,10 +223,10 @@ export const ArtistCombobox: React.FC<ArtistComboboxProps> = ({
       {isOpen && (
         <div
           ref={listRef}
-          className={`absolute left-0 right-0 top-full mt-1.5 z-50 max-h-60 overflow-y-auto rounded-xl border p-1 shadow-2xl backdrop-blur-md animate-in fade-in zoom-in-95 duration-100 ${
+          className={`absolute left-0 right-0 top-full mt-1.5 z-50 max-h-60 overflow-y-auto rounded-xl border p-1 shadow-2xl backdrop-blur-md animate-in fade-in zoom-in-95 duration-250 ${
             isLight
               ? 'bg-white/95 border-black/[0.08] divide-black/[0.04]'
-              : 'bg-[#141418]/95 border-white/[0.08] divide-white/[0.04]'
+              : 'bg-[var(--surface)]/95 border-white/[0.08] divide-white/[0.04]'
           }`}
         >
           {/* Custom entry if not exact match */}
@@ -296,13 +296,13 @@ export const ArtistCombobox: React.FC<ArtistComboboxProps> = ({
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
-                      className={`w-7 h-7 rounded-full bg-gradient-to-tr ${getAvatarGradient(
+                      className={`w-7 h-7 rounded-full studio-contact-avatar ${getAvatarGradient(
                         artist.name
                       )} p-[1px] flex items-center justify-center shrink-0`}
                     >
                       <div
                         className={`w-full h-full rounded-full flex items-center justify-center font-bold text-[10px] ${
-                          isLight ? 'bg-white text-zinc-900' : 'bg-[#111113] text-white'
+                          isLight ? 'bg-white text-zinc-900' : 'bg-[var(--surface)] text-white'
                         }`}
                       >
                         {getInitials(artist.name)}

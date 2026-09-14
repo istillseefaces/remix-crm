@@ -1,3 +1,5 @@
+import { MotionConfig } from 'motion/react';
+import { NativePage, nativeTransition } from './components/NativeMotion';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -92,15 +94,16 @@ const MainLayout: React.FC = () => {
   ]);
 
   return (
-    <div className="flex h-screen w-screen bg-[#0C0C0E] text-[#E0E0E0] font-sans selection:bg-white/10 overflow-hidden select-none">
+    <div className="studio-app">
       {/* Immersive UI Left Sidebar */}
       <Sidebar />
 
       {/* Main Workspace Area */}
-      <div className="flex-1 flex flex-col min-w-0 bg-[#0C0C0E] overflow-hidden">
+      <div className="studio-workspace">
         {/* Top Header with Search and Action Button */}
         <MainHeader />
 
+        <NativePage view={activeTab}>
         {activeTab === 'parser' ? (
           <main className="flex-1 flex flex-col min-h-0 relative overflow-hidden">
             <ParserView />
@@ -123,6 +126,7 @@ const MainLayout: React.FC = () => {
             </main>
           </>
         )}
+        </NativePage>
       </div>
 
       {/* Slide-over Detail Drawer & Modals */}
@@ -143,7 +147,7 @@ const MainLayout: React.FC = () => {
 export default function App() {
   return (
     <AppProvider>
-      <MainLayout />
+      <MotionConfig reducedMotion="user" transition={nativeTransition}><MainLayout /></MotionConfig>
     </AppProvider>
   );
 }

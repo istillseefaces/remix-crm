@@ -373,10 +373,10 @@ export const FilterBuilder: React.FC = () => {
 
   return (
     <div
-      className={`px-4 sm:px-6 lg:px-8 py-2.5 border-b shrink-0 select-none transition-colors duration-150 ${
+      className={`studio-filters px-4 sm:px-6 lg:px-8 py-2.5 border-b shrink-0 select-none transition-colors duration-150 ${
         isLight
-          ? 'bg-[#F8F9FA] border-black/[0.06]'
-          : 'bg-[#111113]/40 border-white/[0.04]'
+          ? 'bg-[var(--canvas)] border-black/[0.06]'
+          : 'bg-[var(--surface)]/40 border-white/[0.04]'
       }`}
     >
       <div className="flex flex-wrap items-center gap-2">
@@ -386,7 +386,7 @@ export const FilterBuilder: React.FC = () => {
             isLight ? 'text-zinc-400' : 'text-white/40'
           }`}
         >
-          Quick Filters:
+          {lang === 'ru' ? 'Быстрый выбор' : 'Quick filters'}
         </span>
 
         {/* Preset Quick Chips */}
@@ -397,6 +397,8 @@ export const FilterBuilder: React.FC = () => {
             return (
               <button
                 key={chip.id}
+                aria-pressed={isActive}
+                data-quick-filter
                 onClick={() => setQuickPreset(isActive ? 'all' : chip.id)}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium border transition-all cursor-pointer ${
                   isActive ? chip.activeClass : chip.colorClass
@@ -421,7 +423,7 @@ export const FilterBuilder: React.FC = () => {
                   : 'bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border-indigo-500/30 font-semibold'
                 : isLight
                 ? 'bg-white hover:bg-black/[0.04] text-zinc-700 hover:text-black border-black/[0.08]'
-                : 'bg-[#18181C] hover:bg-[#202026] text-white/70 hover:text-white border-white/[0.06]'
+                : 'bg-[var(--surface-secondary)] hover:bg-[var(--hover)] text-white/70 hover:text-white border-white/[0.06]'
             }`}
           >
             <Filter className="w-3 h-3 text-indigo-500" />
@@ -444,7 +446,7 @@ export const FilterBuilder: React.FC = () => {
               className={`absolute left-0 top-full mt-2 w-72 p-4 rounded-2xl border shadow-2xl z-40 backdrop-blur-2xl ${
                 isLight
                   ? 'bg-white border-black/[0.1] text-zinc-900'
-                  : 'bg-[#141418] border-white/[0.08] text-white'
+                  : 'bg-[var(--surface)] border-white/[0.08] text-white'
               }`}
             >
               <div
@@ -478,7 +480,7 @@ export const FilterBuilder: React.FC = () => {
                     onChange={(e) => handleFieldChange(e.target.value)}
                     className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                       isLight
-                        ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                        ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                         : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                     }`}
                   >
@@ -520,7 +522,7 @@ export const FilterBuilder: React.FC = () => {
                     onChange={(e) => setSelectedOperator(e.target.value as FilterOperator)}
                     className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                       isLight
-                        ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                        ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                         : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                     }`}
                   >
@@ -565,7 +567,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -578,7 +580,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -602,7 +604,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -628,7 +630,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -654,7 +656,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -679,7 +681,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -705,7 +707,7 @@ export const FilterBuilder: React.FC = () => {
                       onChange={(e) => setFilterValue(e.target.value)}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     >
@@ -730,7 +732,7 @@ export const FilterBuilder: React.FC = () => {
                       placeholder={selectedField === 'types' ? 'Ken Carson, Rage...' : 'Value...'}
                       className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none ${
                         isLight
-                          ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                          ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                           : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                       }`}
                     />
@@ -748,7 +750,7 @@ export const FilterBuilder: React.FC = () => {
                         placeholder="Max amount"
                         className={`w-full px-2.5 py-1.5 rounded-lg border text-xs focus:outline-none ${
                           isLight
-                            ? 'bg-[#F8F9FA] text-zinc-800 border-black/[0.1]'
+                            ? 'bg-[var(--canvas)] text-zinc-800 border-black/[0.1]'
                             : 'bg-[#1C1C22] text-zinc-200 border-white/[0.08]'
                         }`}
                       />
@@ -788,7 +790,7 @@ export const FilterBuilder: React.FC = () => {
             onClick={handleCopyEmails}
             disabled={isCopying}
             title={t.copyEmailsTooltip}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium border transition shadow-xs active:scale-95 cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium border transition shadow-xs active:opacity-80 cursor-pointer ${
               isLight
                 ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border-emerald-200'
                 : 'bg-white/[0.03] hover:bg-white/[0.08] text-white/80 hover:text-white border-white/[0.08]'
@@ -841,7 +843,7 @@ export const FilterBuilder: React.FC = () => {
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] border transition-all ${
                 isLight
                   ? 'bg-white text-zinc-800 border-black/[0.08] shadow-2xs'
-                  : 'bg-[#18181C] text-zinc-300 border-white/[0.08] shadow-2xs'
+                  : 'bg-[var(--surface-secondary)] text-zinc-300 border-white/[0.08] shadow-2xs'
               }`}
             >
               {dotClass && <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotClass}`} />}
@@ -878,7 +880,7 @@ export const FilterBuilder: React.FC = () => {
 
         {/* Showing Records Count Indicator */}
         <div className={`ml-auto text-[11px] font-mono self-center ${isLight ? 'text-zinc-400' : 'text-white/30'}`}>
-          {activeTab === 'artists' ? `Showing ${countDisplay} artists` : `Showing ${countDisplay} deals`}
+          {lang === 'ru' ? `Записей: ${countDisplay}` : activeTab === 'artists' ? `Showing ${countDisplay} artists` : `Showing ${countDisplay} deals`}
         </div>
       </div>
     </div>

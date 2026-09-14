@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { X, Plus, Tag } from 'lucide-react';
@@ -50,7 +52,7 @@ export const ArtistModal: React.FC = () => {
     setIsNewArtistModalOpen(false);
   };
 
-  if (!isNewArtistModalOpen) return null;
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,25 +93,25 @@ export const ArtistModal: React.FC = () => {
     setTypes(types.filter((x) => x !== tToRemove));
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
-      <div
-        className={`w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border animate-in zoom-in-95 duration-150 ${
+  return <AnimatePresence>{isNewArtistModalOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
+      <NativePanel
+        className={`studio-dialog w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border animate-in zoom-in-95 duration-150 ${
           isLight
-            ? 'bg-white border-black/[0.08] text-[#1A1A1E]'
-            : 'bg-[#111113] border-white/[0.08] text-white'
+            ? 'bg-white border-black/[0.08] text-[var(--ink)]'
+            : 'bg-[var(--surface)] border-white/[0.08] text-white'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
         <div
           className={`px-5 py-4 border-b flex items-center justify-between ${
-            isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+            isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
           }`}
         >
           <div className="flex items-center gap-2">
-            <span className="text-emerald-500 font-mono">✦</span>
-            <h3 className={`text-sm font-semibold ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+
+            <h3 className={`text-sm font-semibold ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
               {t.newArtistTitle}
             </h3>
           </div>
@@ -142,7 +144,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -159,7 +161,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -176,7 +178,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -193,7 +195,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -210,7 +212,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -227,7 +229,7 @@ export const ArtistModal: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -252,8 +254,8 @@ export const ArtistModal: React.FC = () => {
           <div
             className={`grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 rounded-xl border ${
               isLight
-                ? 'bg-[#F8F9FA] border-black/[0.06]'
-                : 'bg-[#18181C] border-white/[0.06]'
+                ? 'bg-[var(--canvas)] border-black/[0.06]'
+                : 'bg-[var(--surface-secondary)] border-white/[0.06]'
             }`}
           >
             <div className="min-w-0">
@@ -355,7 +357,7 @@ export const ArtistModal: React.FC = () => {
                 className={`flex-1 px-3 py-1.5 rounded-lg border focus:outline-none ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
               <button
@@ -385,7 +387,7 @@ export const ArtistModal: React.FC = () => {
               className={`w-full px-3 py-2 rounded-lg border focus:outline-none resize-y ${
                 isLight
                   ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                  : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                  : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
               }`}
             />
           </div>
@@ -419,7 +421,7 @@ export const ArtistModal: React.FC = () => {
             </button>
           </div>
         </form>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

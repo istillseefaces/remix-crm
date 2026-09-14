@@ -1,3 +1,6 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
+import type { Artist } from '../types';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import {
@@ -24,6 +27,12 @@ import { CustomDropdown } from './CustomDropdown';
 import { DatePicker } from './DatePicker';
 
 export const ArtistDrawer: React.FC = () => {
+  const { artists, activeArtistId } = useApp();
+  const artist = artists.find(a => a.id === activeArtistId);
+  return <AnimatePresence>{artist && <ArtistDrawerContent key={artist.id} artist={artist} />}</AnimatePresence>;
+};
+
+const ArtistDrawerContent: React.FC<{ artist: Artist }> = ({ artist }) => {
   const {
     activeArtistId,
     setActiveArtistId,
@@ -38,7 +47,7 @@ export const ArtistDrawer: React.FC = () => {
   } = useApp();
 
   const isLight = theme === 'light';
-  const artist = artists.find((a) => a.id === activeArtistId);
+
 
   const [name, setName] = useState('');
   const [instagram, setInstagram] = useState('');
@@ -162,24 +171,24 @@ export const ArtistDrawer: React.FC = () => {
 
   return (
     <>
-      <div className="fixed inset-0 z-50 overflow-hidden flex justify-end bg-black/60 backdrop-blur-xs animate-in fade-in">
-        <div
-          className={`w-full max-w-xl shadow-2xl flex flex-col h-full overflow-hidden animate-in slide-in-from-right duration-200 border-l ${
+      <NativeBackdrop className="fixed inset-0 z-50 overflow-hidden flex justify-end bg-black/60 backdrop-blur-xs animate-in fade-in">
+        <NativePanel drawer
+          className={`native-drawer w-full max-w-xl shadow-2xl flex flex-col h-full overflow-hidden animate-in slide-in-from-right duration-200 border-l ${
             isLight
-              ? 'bg-white border-black/[0.08] text-[#1A1A1E]'
-              : 'bg-[#111113] border-white/[0.08] text-white'
+              ? 'bg-white border-black/[0.08] text-[var(--ink)]'
+              : 'bg-[var(--surface)] border-white/[0.08] text-white'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Drawer Header */}
           <div
             className={`px-6 py-4 border-b flex items-center justify-between ${
-              isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+              isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
             }`}
           >
             <div className="flex items-center gap-2">
               <span className="text-emerald-500 font-mono text-sm">✦</span>
-              <h2 className={`text-sm font-semibold truncate max-w-xs ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+              <h2 className={`text-sm font-semibold truncate max-w-xs ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                 {name || t.editArtist}
               </h2>
             </div>
@@ -216,8 +225,8 @@ export const ArtistDrawer: React.FC = () => {
             <div
               className={`p-3 rounded-xl border space-y-2 ${
                 isLight
-                  ? 'bg-[#F8F9FA] border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  ? 'bg-[var(--canvas)] border-black/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <div className="text-[11px] font-medium text-zinc-500 flex items-center justify-between">
@@ -358,7 +367,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -375,7 +384,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -392,7 +401,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -409,7 +418,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -426,7 +435,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -443,7 +452,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`w-full px-3 py-2 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
               </div>
@@ -453,8 +462,8 @@ export const ArtistDrawer: React.FC = () => {
             <div
               className={`grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 rounded-xl border ${
                 isLight
-                  ? 'bg-[#F8F9FA] border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  ? 'bg-[var(--canvas)] border-black/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <div className="w-full max-w-full overflow-hidden">
@@ -535,7 +544,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`flex items-center justify-between gap-1 px-2 py-1 rounded-lg border h-[30px] w-full max-w-full overflow-hidden ${
                     isLight
                       ? 'bg-white border-black/[0.1]'
-                      : 'bg-[#111113] border-white/[0.08]'
+                      : 'bg-[var(--surface)] border-white/[0.08]'
                   }`}
                 >
                   <button
@@ -643,7 +652,7 @@ export const ArtistDrawer: React.FC = () => {
                   className={`flex-1 px-3 py-1.5 rounded-lg border focus:outline-none ${
                     isLight
                       ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                      : 'bg-[#18181C] text-zinc-200 border-white/[0.08] focus:border-emerald-500/40'
+                      : 'bg-[var(--surface-secondary)] text-zinc-200 border-white/[0.08] focus:border-emerald-500/40'
                   }`}
                 />
                 <button
@@ -673,7 +682,7 @@ export const ArtistDrawer: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border focus:outline-none resize-y ${
                   isLight
                     ? 'bg-white text-zinc-900 border-black/[0.1] focus:border-black/30'
-                    : 'bg-[#18181C] text-zinc-200 border-white/[0.08] focus:border-emerald-500/40'
+                    : 'bg-[var(--surface-secondary)] text-zinc-200 border-white/[0.08] focus:border-emerald-500/40'
                 }`}
               />
             </div>
@@ -702,8 +711,8 @@ export const ArtistDrawer: React.FC = () => {
                       key={d.id}
                       className={`p-2.5 rounded-lg border flex items-center justify-between ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
-                          : 'bg-[#18181C] border-white/[0.04]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.04]'
                       }`}
                     >
                       <div>
@@ -740,8 +749,8 @@ export const ArtistDrawer: React.FC = () => {
                 <div
                   className={`p-3 rounded-lg text-center text-xs border ${
                     isLight
-                      ? 'bg-[#F8F9FA] text-zinc-500 border-black/[0.04]'
-                      : 'bg-[#18181C] text-zinc-500 border-white/[0.04]'
+                      ? 'bg-[var(--canvas)] text-zinc-500 border-black/[0.04]'
+                      : 'bg-[var(--surface-secondary)] text-zinc-500 border-white/[0.04]'
                   }`}
                 >
                   {t.noDealsYet}
@@ -753,7 +762,7 @@ export const ArtistDrawer: React.FC = () => {
           {/* Drawer Footer */}
           <div
             className={`px-6 py-3.5 border-t flex items-center justify-end gap-2 ${
-              isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+              isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
             }`}
           >
             <button
@@ -777,8 +786,8 @@ export const ArtistDrawer: React.FC = () => {
               {t.save}
             </button>
           </div>
-        </div>
-      </div>
+        </NativePanel>
+      </NativeBackdrop>
 
       {/* Custom Delete Confirmation Modal */}
       <ConfirmModal

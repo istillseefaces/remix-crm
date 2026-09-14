@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
 import { X, Shield, Lock, Globe, FileText, User } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -24,7 +26,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
   const [notes, setNotes] = useState(accountToEdit?.notes || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (!isOpen) return null;
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,13 +46,13 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div
-        className={`w-full max-w-md rounded-2xl shadow-2xl border overflow-hidden ${
+  return <AnimatePresence>{isOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+      <NativePanel
+        className={`studio-dialog w-full max-w-md rounded-2xl shadow-2xl border overflow-hidden ${
           isLight
             ? 'bg-white border-zinc-200 text-zinc-900'
-            : 'bg-[#121215] border-white/10 text-white'
+            : 'bg-[var(--surface)] border-white/10 text-white'
         }`}
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/5">
@@ -85,7 +87,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
               className={`w-full px-3 py-2 rounded-xl border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
           </div>
@@ -103,7 +105,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
               className={`w-full px-3 py-2 rounded-xl border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
           </div>
@@ -121,7 +123,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
               className={`w-full px-3 py-2 rounded-xl border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
           </div>
@@ -139,7 +141,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
               className={`w-full px-3 py-2 rounded-xl border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
           </div>
@@ -157,7 +159,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
               className={`w-full px-3 py-2 rounded-xl border transition outline-none resize-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
           </div>
@@ -179,7 +181,7 @@ export const ParserAccountModal: React.FC<ParserAccountModalProps> = ({
             </button>
           </div>
         </form>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

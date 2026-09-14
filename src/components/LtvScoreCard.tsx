@@ -113,7 +113,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
     <div
       className={`p-4 sm:p-5 rounded-2xl border flex flex-col justify-between relative transition-all duration-200 ${
         isLight
-          ? 'bg-[#F8F9FA] border-black/[0.06] shadow-xs'
+          ? 'bg-[var(--canvas)] border-black/[0.06] shadow-xs'
           : 'bg-[#151519] border-white/[0.04]'
       }`}
     >
@@ -131,7 +131,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
             <div>
               <h4
                 className={`text-sm font-semibold tracking-tight ${
-                  isLight ? 'text-[#1A1A1E]' : 'text-white'
+                  isLight ? 'text-[var(--ink)]' : 'text-white'
                 }`}
               >
                 {t.ltvTitle || 'LTV Score (Индекс возвращаемости)'}
@@ -148,7 +148,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
               className={`px-2.5 py-1 rounded-lg border text-xs flex items-center gap-1.5 ${
                 isLight
                   ? 'bg-white border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <DollarSign className="w-3.5 h-3.5 text-emerald-500" />
@@ -160,7 +160,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
               className={`px-2.5 py-1 rounded-lg border text-xs flex items-center gap-1.5 ${
                 isLight
                   ? 'bg-white border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <Repeat className="w-3.5 h-3.5 text-indigo-500" />
@@ -197,7 +197,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
                         : 'bg-amber-500/[0.06] border-amber-500/20'
                       : isLight
                       ? 'bg-white border-black/[0.04] hover:bg-black/[0.01]'
-                      : 'bg-[#18181C] border-white/[0.04] hover:bg-white/[0.02]'
+                      : 'bg-[var(--surface-secondary)] border-white/[0.04] hover:bg-white/[0.02]'
                   }`}
                 >
                   {/* Left: Rank & Avatar & Name */}
@@ -239,7 +239,7 @@ export const LtvScoreCard: React.FC<LtvScoreCardProps> = ({
                       <div className="flex items-center gap-1.5">
                         <span
                           className={`text-xs font-semibold truncate ${
-                            isLight ? 'text-[#1A1A1E]' : 'text-white'
+                            isLight ? 'text-[var(--ink)]' : 'text-white'
                           }`}
                         >
                           {client.artistName}

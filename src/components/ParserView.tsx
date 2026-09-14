@@ -126,17 +126,17 @@ export const ParserView: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 overflow-y-auto p-4 md:p-6 space-y-6">
+    <div className="studio-parser flex-1 flex flex-col min-h-0 overflow-y-auto p-4 md:p-6 space-y-6">
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            <h1 className="text-xl font-bold tracking-tight text-[var(--ink)] flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-indigo-400" />
               <span>{t.parserTitle}</span>
             </h1>
             <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-              Playwright Core
+              Discovery
             </span>
           </div>
           <p className="text-xs text-zinc-400 mt-1">{t.parserSubtitle}</p>
@@ -203,7 +203,7 @@ export const ParserView: React.FC = () => {
         className={`rounded-2xl border overflow-hidden p-4 space-y-3 transition-all ${
           isLight
             ? 'bg-white border-zinc-200 shadow-sm'
-            : 'bg-[#121215] border-white/10 shadow-xl'
+            : 'bg-[var(--surface)] border-white/10 shadow-xl'
         }`}
       >
         <div className="flex items-center justify-between">
@@ -217,7 +217,7 @@ export const ParserView: React.FC = () => {
                   : 'bg-zinc-500'
               }`}
             />
-            <span className="font-semibold text-zinc-200">
+            <span className="font-semibold text-[var(--ink)]">
               {parserStatus?.isRunning ? 'Парсер запущен' : 'Статус: Ожидание'}
             </span>
             <span className="text-zinc-500">|</span>
@@ -238,7 +238,7 @@ export const ParserView: React.FC = () => {
             className={`h-full transition-all duration-300 ${
               parserStatus?.error
                 ? 'bg-rose-500'
-                : 'bg-gradient-to-r from-indigo-500 to-emerald-400'
+                : 'bg-indigo-500'
             }`}
             style={{ width: `${Math.max(5, parserStatus?.progress || 0)}%` }}
           />
@@ -306,7 +306,7 @@ export const ParserView: React.FC = () => {
                 ? 'bg-indigo-600 text-white shadow-sm'
                 : isLight
                 ? 'text-zinc-600 hover:bg-zinc-100'
-                : 'text-zinc-400 hover:bg-white/5 hover:text-white'
+                : 'text-zinc-400 hover:bg-white/5 hover:text-[var(--ink)]'
             }`}
           >
             <Database className="w-4 h-4" />
@@ -314,7 +314,7 @@ export const ParserView: React.FC = () => {
             <span
               className={`px-2 py-0.5 rounded-full text-[10px] ${
                 activeSubTab === 'staging'
-                  ? 'bg-white/20 text-white'
+                  ? 'bg-white/20 text-[var(--ink)]'
                   : 'bg-indigo-500/10 text-indigo-400'
               }`}
             >
@@ -330,7 +330,7 @@ export const ParserView: React.FC = () => {
                 ? 'bg-indigo-600 text-white shadow-sm'
                 : isLight
                 ? 'text-zinc-600 hover:bg-zinc-100'
-                : 'text-zinc-400 hover:bg-white/5 hover:text-white'
+                : 'text-zinc-400 hover:bg-white/5 hover:text-[var(--ink)]'
             }`}
           >
             <Shield className="w-4 h-4" />
@@ -338,7 +338,7 @@ export const ParserView: React.FC = () => {
             <span
               className={`px-2 py-0.5 rounded-full text-[10px] ${
                 activeSubTab === 'accounts'
-                  ? 'bg-white/20 text-white'
+                  ? 'bg-white/20 text-[var(--ink)]'
                   : 'bg-white/10 text-zinc-400'
               }`}
             >
@@ -407,7 +407,7 @@ export const ParserView: React.FC = () => {
       {activeSubTab === 'staging' && (
         <div
           className={`rounded-2xl border overflow-hidden ${
-            isLight ? 'bg-white border-zinc-200' : 'bg-[#121215] border-white/10'
+            isLight ? 'bg-white border-zinc-200' : 'bg-[var(--surface)] border-white/10'
           }`}
         >
           {staging.length === 0 ? (
@@ -461,7 +461,7 @@ export const ParserView: React.FC = () => {
                             </div>
                           )}
                           <div className="min-w-0">
-                            <div className="font-semibold text-zinc-200 truncate">
+                            <div className="font-semibold text-[var(--ink)] truncate">
                               {contact.fullName || contact.name || contact.username}
                             </div>
                             <a
@@ -489,7 +489,7 @@ export const ParserView: React.FC = () => {
                         </span>
                       </td>
 
-                      <td className="py-3 px-3 font-medium text-zinc-300">
+                      <td className="py-3 px-3 font-medium text-[var(--ink)]">
                         {(contact.followersCount || 0).toLocaleString()}
                       </td>
 
@@ -548,7 +548,7 @@ export const ParserView: React.FC = () => {
                 className={`rounded-2xl border p-5 space-y-4 flex flex-col justify-between transition ${
                   isLight
                     ? 'bg-white border-zinc-200 hover:border-zinc-300'
-                    : 'bg-[#121215] border-white/10 hover:border-white/20'
+                    : 'bg-[var(--surface)] border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="space-y-3">
@@ -558,7 +558,7 @@ export const ParserView: React.FC = () => {
                         <Instagram className="w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-zinc-200">@{account.username}</h3>
+                        <h3 className="font-semibold text-[var(--ink)]">@{account.username}</h3>
                         <p className="text-[11px] text-zinc-500">
                           {checkedDate ? `Проверен: ${checkedDate}` : 'Не проверялся'}
                         </p>
@@ -624,7 +624,7 @@ export const ParserView: React.FC = () => {
                       setAccountToEdit(account);
                       setIsAccountModalOpen(true);
                     }}
-                    className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/5 transition cursor-pointer"
+                    className="p-2 rounded-xl text-zinc-400 hover:text-[var(--ink)] hover:bg-white/5 transition cursor-pointer"
                     title="Редактировать"
                   >
                     <Settings2 className="w-4 h-4" />

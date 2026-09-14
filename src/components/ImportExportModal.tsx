@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import {
@@ -45,7 +47,7 @@ export const ImportExportModal: React.FC = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  if (!isImportExportOpen) return null;
+
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -120,23 +122,23 @@ export const ImportExportModal: React.FC = () => {
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in">
-      <div
-        className={`w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden border transition-colors ${
-          isLight ? 'bg-white border-black/[0.08]' : 'bg-[#111113] border-white/[0.08]'
+  return <AnimatePresence>{isImportExportOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in">
+      <NativePanel
+        className={`studio-dialog w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden border transition-colors ${
+          isLight ? 'bg-white border-black/[0.08]' : 'bg-[var(--surface)] border-white/[0.08]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
           className={`px-6 py-4 border-b flex items-center justify-between ${
-            isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+            isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
           }`}
         >
           <div className="flex items-center gap-2">
             <FileSpreadsheet className="w-4 h-4 text-emerald-500" />
-            <h3 className={`text-sm font-semibold ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+            <h3 className={`text-sm font-semibold ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
               {t.importExportTitle}
             </h3>
           </div>
@@ -188,8 +190,8 @@ export const ImportExportModal: React.FC = () => {
                     ? 'border-emerald-600 bg-emerald-50 text-emerald-800'
                     : 'border-emerald-500 bg-emerald-500/10 text-emerald-300'
                   : isLight
-                  ? 'border-black/[0.12] bg-[#F8F9FA] hover:bg-[#F1F3F5] text-zinc-600 hover:border-black/[0.2]'
-                  : 'border-white/[0.1] bg-[#18181C] hover:bg-[#1f1f26] text-zinc-400 hover:border-white/[0.2]'
+                  ? 'border-black/[0.12] bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] text-zinc-600 hover:border-black/[0.2]'
+                  : 'border-white/[0.1] bg-[var(--surface-secondary)] hover:bg-[#1f1f26] text-zinc-400 hover:border-white/[0.2]'
               }`}
             >
               <ArrowDownToLine className="w-7 h-7 text-emerald-500 mb-2" />
@@ -251,8 +253,8 @@ export const ImportExportModal: React.FC = () => {
                 onClick={() => exportFullWorkbook(artists, deals, lang)}
                 className={`flex items-center gap-2.5 p-3 rounded-xl border transition cursor-pointer ${
                   isLight
-                    ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] text-zinc-800 border-black/[0.06]'
-                    : 'bg-[#18181C] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
+                    ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] text-zinc-800 border-black/[0.06]'
+                    : 'bg-[var(--surface-secondary)] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
                 }`}
               >
                 <Layers className="w-4 h-4 text-emerald-500" />
@@ -269,8 +271,8 @@ export const ImportExportModal: React.FC = () => {
                 onClick={() => exportArtistsToExcel(artists, lang)}
                 className={`flex items-center gap-2.5 p-3 rounded-xl border transition cursor-pointer ${
                   isLight
-                    ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] text-zinc-800 border-black/[0.06]'
-                    : 'bg-[#18181C] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
+                    ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] text-zinc-800 border-black/[0.06]'
+                    : 'bg-[var(--surface-secondary)] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
                 }`}
               >
                 <FileSpreadsheet className="w-4 h-4 text-emerald-500" />
@@ -287,8 +289,8 @@ export const ImportExportModal: React.FC = () => {
                 onClick={() => exportDealsToExcel(deals, lang)}
                 className={`flex items-center gap-2.5 p-3 rounded-xl border transition cursor-pointer ${
                   isLight
-                    ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] text-zinc-800 border-black/[0.06]'
-                    : 'bg-[#18181C] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
+                    ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] text-zinc-800 border-black/[0.06]'
+                    : 'bg-[var(--surface-secondary)] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
                 }`}
               >
                 <FileSpreadsheet className="w-4 h-4 text-cyan-500" />
@@ -305,8 +307,8 @@ export const ImportExportModal: React.FC = () => {
                 onClick={() => exportToCSV(artists, 'verse_artists')}
                 className={`flex items-center gap-2.5 p-3 rounded-xl border transition cursor-pointer ${
                   isLight
-                    ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] text-zinc-800 border-black/[0.06]'
-                    : 'bg-[#18181C] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
+                    ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] text-zinc-800 border-black/[0.06]'
+                    : 'bg-[var(--surface-secondary)] hover:bg-[#202028] text-zinc-200 border-white/[0.06]'
                 }`}
               >
                 <FileText className="w-4 h-4 text-amber-500" />
@@ -324,7 +326,7 @@ export const ImportExportModal: React.FC = () => {
         {/* Footer */}
         <div
           className={`px-6 py-3.5 border-t flex justify-end ${
-            isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+            isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
           }`}
         >
           <button
@@ -338,7 +340,7 @@ export const ImportExportModal: React.FC = () => {
             {t.cancel}
           </button>
         </div>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

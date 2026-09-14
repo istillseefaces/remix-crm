@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
 import { X, UserPlus, CheckSquare, Square, Download, Instagram, Music } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -28,7 +30,7 @@ export const ImportFromParserModal: React.FC<ImportFromParserModalProps> = ({
       .map((c) => c.id)
   );
 
-  if (!isOpen) return null;
+
 
   const toggleSelect = (id: string) => {
     setSelectedIds((prev) =>
@@ -50,13 +52,13 @@ export const ImportFromParserModal: React.FC<ImportFromParserModalProps> = ({
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div
+  return <AnimatePresence>{isOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+      <NativePanel
         className={`w-full max-w-3xl rounded-2xl shadow-2xl border flex flex-col max-h-[85vh] overflow-hidden ${
           isLight
             ? 'bg-white border-zinc-200 text-zinc-900'
-            : 'bg-[#121215] border-white/10 text-white'
+            : 'bg-[var(--surface)] border-white/10 text-white'
         }`}
       >
         {/* Header */}
@@ -128,7 +130,7 @@ export const ImportFromParserModal: React.FC<ImportFromParserModalProps> = ({
                         : 'bg-indigo-500/10 border-indigo-500/30 shadow-xs'
                       : isLight
                       ? 'bg-zinc-50 border-zinc-200 hover:border-zinc-300'
-                      : 'bg-[#16161A] border-white/5 hover:border-white/10'
+                      : 'bg-[var(--canvas)] border-white/5 hover:border-white/10'
                   }`}
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
@@ -225,7 +227,7 @@ export const ImportFromParserModal: React.FC<ImportFromParserModalProps> = ({
             <span>{t.importSelectedCount(selectedIds.length)}</span>
           </button>
         </div>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

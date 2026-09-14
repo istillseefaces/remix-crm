@@ -543,31 +543,31 @@ export const AnalyticsView: React.FC = () => {
 
   return (
     <div
-      className={`flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
-        isLight ? 'bg-[#F8F9FA]' : 'bg-[#0C0C0E]'
+      className={`studio-analytics studio-content flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
+        isLight ? 'bg-[var(--canvas)]' : 'bg-[var(--canvas)]'
       }`}
     >
       <div
-        className={`h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
+        className={`studio-panel h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
           isLight
             ? 'bg-white border-black/[0.06] shadow-xs'
-            : 'bg-[#111113]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
+            : 'bg-[var(--surface)]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
         }`}
       >
         {/* Top Analytics Header & Navigation */}
         <div
           className={`p-3.5 lg:p-4 border-b flex flex-wrap items-center justify-between gap-3 shrink-0 ${
             isLight
-              ? 'bg-[#F8F9FA] border-black/[0.06]'
-              : 'bg-[#141418]/90 backdrop-blur-md border-white/[0.04]'
+              ? 'bg-[var(--canvas)] border-black/[0.06]'
+              : 'bg-[var(--surface)]/90 backdrop-blur-md border-white/[0.04]'
           }`}
         >
           {/* Sub-Tabs Pills */}
           <div
             className={`flex items-center gap-1 p-1 rounded-xl border overflow-x-auto ${
               isLight
-                ? 'bg-[#F1F3F5] border-black/[0.06]'
-                : 'bg-[#18181C] border-white/[0.04]'
+                ? 'bg-[var(--surface-secondary)] border-black/[0.06]'
+                : 'bg-[var(--surface-secondary)] border-white/[0.04]'
             }`}
           >
             <button
@@ -674,8 +674,8 @@ export const AnalyticsView: React.FC = () => {
             <div
               className={`flex items-center gap-1 p-1 rounded-xl border overflow-x-auto ${
                 isLight
-                  ? 'bg-[#F1F3F5] border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  ? 'bg-[var(--surface-secondary)] border-black/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <div
@@ -690,7 +690,7 @@ export const AnalyticsView: React.FC = () => {
                 <button
                   key={tf.id}
                   onClick={() => setTimeRange(tf.id)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer whitespace-nowrap active:scale-95 ${
+                  className={`px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer whitespace-nowrap active:opacity-80 ${
                     timeRange === tf.id
                       ? isLight
                         ? 'bg-white text-indigo-700 font-bold shadow-xs border border-black/[0.06]'
@@ -709,8 +709,8 @@ export const AnalyticsView: React.FC = () => {
             <div
               className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs ${
                 isLight
-                  ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-800'
-                  : 'bg-[#18181C] border-white/[0.06] text-zinc-200'
+                  ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-800'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-200'
               }`}
             >
               <Filter className="w-3.5 h-3.5 text-zinc-400" />
@@ -719,22 +719,22 @@ export const AnalyticsView: React.FC = () => {
                 onChange={(e) => setPlatformFilter(e.target.value)}
                 className="bg-transparent text-xs focus:outline-none cursor-pointer"
               >
-                <option value="all" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="all" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   {t.allPlatforms}
                 </option>
-                <option value="Instagram" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="Instagram" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   Instagram
                 </option>
-                <option value="Telegram" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="Telegram" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   Telegram
                 </option>
-                <option value="iMessage" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="iMessage" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   iMessage
                 </option>
-                <option value="Discord" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="Discord" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   Discord
                 </option>
-                <option value="Email" className={isLight ? 'bg-white text-zinc-800' : 'bg-[#18181C]'}>
+                <option value="Email" className={isLight ? 'bg-white text-zinc-800' : 'bg-[var(--surface-secondary)]'}>
                   Email
                 </option>
               </select>
@@ -748,20 +748,20 @@ export const AnalyticsView: React.FC = () => {
             <div
               className={`h-96 flex flex-col items-center justify-center p-8 text-center border rounded-2xl ${
                 isLight
-                  ? 'bg-[#F8F9FA] border-black/[0.06]'
-                  : 'bg-[#141418]/40 border-white/[0.04]'
+                  ? 'bg-[var(--canvas)] border-black/[0.06]'
+                  : 'bg-[var(--surface)]/40 border-white/[0.04]'
               }`}
             >
               <div
                 className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-4 shadow-sm ${
                   isLight
                     ? 'bg-white border-black/[0.06] text-pink-600'
-                    : 'bg-[#18181C] border-white/[0.08] text-pink-400'
+                    : 'bg-[var(--surface-secondary)] border-white/[0.08] text-pink-400'
                 }`}
               >
                 <BarChart3 className="w-7 h-7" />
               </div>
-              <h3 className={`text-base font-semibold mb-1.5 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+              <h3 className={`text-base font-semibold mb-1.5 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                 {t.emptyAnalyticsTitle}
               </h3>
               <p className={`text-xs max-w-md mb-6 leading-relaxed ${isLight ? 'text-zinc-500' : 'text-white/50'}`}>
@@ -770,7 +770,7 @@ export const AnalyticsView: React.FC = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={resetToSampleData}
-                  className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-95 text-white font-semibold text-xs rounded-xl transition shadow-sm flex items-center gap-1.5 cursor-pointer active:scale-95"
+                  className="px-4 py-2 bg-indigo-600 hover:opacity-95 text-white font-semibold text-xs rounded-xl transition shadow-sm flex items-center gap-1.5 cursor-pointer active:opacity-80"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{t.loadDemoDataAction}</span>
@@ -779,7 +779,7 @@ export const AnalyticsView: React.FC = () => {
                   onClick={() => setIsNewArtistModalOpen(true)}
                   className={`px-4 py-2 text-xs font-semibold rounded-xl border transition cursor-pointer ${
                     isLight
-                      ? 'bg-[#F1F3F5] hover:bg-black/[0.06] text-zinc-800 border-black/[0.06]'
+                      ? 'bg-[var(--surface-secondary)] hover:bg-black/[0.06] text-zinc-800 border-black/[0.06]'
                       : 'bg-white/[0.06] hover:bg-white/[0.12] text-zinc-200 border-white/[0.06]'
                   }`}
                 >
@@ -798,7 +798,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-xl border relative overflow-hidden transition-colors ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
@@ -808,7 +808,7 @@ export const AnalyticsView: React.FC = () => {
                         </span>
                         <Users className="w-4 h-4 text-indigo-500" />
                       </div>
-                      <div className={`text-2xl font-bold font-mono tracking-tight ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <div className={`text-2xl font-bold font-mono tracking-tight ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         {filteredArtists.length}
                       </div>
                       <div className="mt-1 text-[10px] text-zinc-500 flex items-center gap-1">
@@ -823,7 +823,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-xl border relative overflow-hidden transition-colors ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
@@ -848,7 +848,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-xl border relative overflow-hidden transition-colors ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
@@ -877,7 +877,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-xl border relative overflow-hidden transition-colors ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
@@ -930,13 +930,13 @@ export const AnalyticsView: React.FC = () => {
                   <div
                     className={`p-5 rounded-2xl border space-y-4 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06]'
+                        ? 'bg-[var(--canvas)] border-black/[0.06]'
                         : 'bg-[#151519] border-white/[0.04]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                           <Target className="w-4 h-4 text-indigo-500" />
                           <span>{t.outreachFunnel}</span>
                         </h4>
@@ -996,7 +996,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-2xl border relative overflow-hidden transition ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-emerald-600/30'
+                          ? 'bg-[var(--canvas)] border-emerald-600/30'
                           : 'bg-[#151519] border-emerald-500/20'
                       }`}
                     >
@@ -1028,7 +1028,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-2xl border relative overflow-hidden transition ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-indigo-600/30'
+                          ? 'bg-[var(--canvas)] border-indigo-600/30'
                           : 'bg-[#151519] border-indigo-500/20'
                       }`}
                     >
@@ -1060,7 +1060,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-2xl border relative overflow-hidden transition ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-cyan-600/30'
+                          ? 'bg-[var(--canvas)] border-cyan-600/30'
                           : 'bg-[#151519] border-cyan-500/20'
                       }`}
                     >
@@ -1083,7 +1083,7 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-4 rounded-2xl border relative overflow-hidden transition ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-amber-600/30'
+                          ? 'bg-[var(--canvas)] border-amber-600/30'
                           : 'bg-[#151519] border-amber-500/20'
                       }`}
                     >
@@ -1113,13 +1113,13 @@ export const AnalyticsView: React.FC = () => {
                   <div
                     className={`p-5 rounded-2xl border space-y-4 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06] shadow-xs'
+                        ? 'bg-[var(--canvas)] border-black/[0.06] shadow-xs'
                         : 'bg-[#151519] border-white/[0.04] shadow-xl'
                     }`}
                   >
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
-                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                           <Activity className="w-4 h-4 text-emerald-500" />
                           <span>{t.dealsDynamicsTitle}</span>
                         </h4>
@@ -1132,8 +1132,8 @@ export const AnalyticsView: React.FC = () => {
                       <div
                         className={`flex items-center gap-1 p-1 rounded-xl border text-xs ${
                           isLight
-                            ? 'bg-[#F1F3F5] border-black/[0.06]'
-                            : 'bg-[#18181C] border-white/[0.06]'
+                            ? 'bg-[var(--surface-secondary)] border-black/[0.06]'
+                            : 'bg-[var(--surface-secondary)] border-white/[0.06]'
                         }`}
                       >
                         <button
@@ -1244,11 +1244,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-4 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <DollarSign className="w-4 h-4 text-emerald-500" />
                         <span>Выручка по платформам</span>
                       </h4>
@@ -1260,11 +1260,11 @@ export const AnalyticsView: React.FC = () => {
                             className={`p-3 rounded-xl border flex items-center justify-between ${
                               isLight
                                 ? 'bg-white border-black/[0.06]'
-                                : 'bg-[#18181C] border-white/[0.04]'
+                                : 'bg-[var(--surface-secondary)] border-white/[0.04]'
                             }`}
                           >
                             <div>
-                              <div className={`font-semibold text-xs ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                              <div className={`font-semibold text-xs ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                                 {plat.name}
                               </div>
                               <div className="text-[10px] text-zinc-500 font-mono mt-0.5">
@@ -1290,12 +1290,12 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`lg:col-span-2 p-5 rounded-2xl border space-y-4 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                        <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                           <ListFilter className="w-4 h-4 text-indigo-500" />
                           <span>Сделки за выбранный период ({filteredDeals.length})</span>
                         </h4>
@@ -1341,7 +1341,7 @@ export const AnalyticsView: React.FC = () => {
                                     isLight ? 'hover:bg-black/[0.02]' : 'hover:bg-white/[0.02]'
                                   }`}
                                 >
-                                  <td className={`py-2.5 px-3 font-semibold ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                                  <td className={`py-2.5 px-3 font-semibold ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                                     {deal.artistName}
                                   </td>
                                   <td className="py-2.5 px-3">
@@ -1349,7 +1349,7 @@ export const AnalyticsView: React.FC = () => {
                                       className={`px-2 py-0.5 rounded text-[10px] border ${
                                         isLight
                                           ? 'bg-white text-zinc-700 border-black/[0.06]'
-                                          : 'bg-[#18181C] text-zinc-300 border-white/[0.04]'
+                                          : 'bg-[var(--surface-secondary)] text-zinc-300 border-white/[0.04]'
                                       }`}
                                     >
                                       {deal.platform}
@@ -1435,13 +1435,13 @@ export const AnalyticsView: React.FC = () => {
                   <div
                     className={`p-5 rounded-2xl border space-y-4 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06]'
+                        ? 'bg-[var(--canvas)] border-black/[0.06]'
                         : 'bg-[#151519] border-white/[0.04]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                        <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                           <TrendingUp className="w-4 h-4 text-emerald-500" />
                           <span>{t.revenueGrowth}</span>
                         </h4>
@@ -1522,11 +1522,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-4 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <DollarSign className="w-4 h-4 text-emerald-500" />
                         <span>{t.revenueByPlatformChart}</span>
                       </h4>
@@ -1582,11 +1582,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-4 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <BarChart3 className="w-4 h-4 text-indigo-500" />
                         <span>{t.dealsByPlatformChart}</span>
                       </h4>
@@ -1643,11 +1643,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-3 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <PieIcon className="w-4 h-4 text-emerald-500" />
                         <span>{t.artistStatusDist}</span>
                       </h4>
@@ -1686,11 +1686,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-3 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <PieIcon className="w-4 h-4 text-cyan-500" />
                         <span>{t.demoStatusDist}</span>
                       </h4>
@@ -1729,11 +1729,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-3 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <PieIcon className="w-4 h-4 text-purple-500" />
                         <span>{t.dealStageDist}</span>
                       </h4>
@@ -1772,11 +1772,11 @@ export const AnalyticsView: React.FC = () => {
                     <div
                       className={`p-5 rounded-2xl border space-y-3 ${
                         isLight
-                          ? 'bg-[#F8F9FA] border-black/[0.06]'
+                          ? 'bg-[var(--canvas)] border-black/[0.06]'
                           : 'bg-[#151519] border-white/[0.04]'
                       }`}
                     >
-                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-xs font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <PieIcon className="w-4 h-4 text-pink-500" />
                         <span>{t.reactionDist}</span>
                       </h4>
@@ -1820,12 +1820,12 @@ export const AnalyticsView: React.FC = () => {
                   <div
                     className={`p-5 rounded-2xl border space-y-4 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06]'
+                        ? 'bg-[var(--canvas)] border-black/[0.06]'
                         : 'bg-[#151519] border-white/[0.04]'
                     }`}
                   >
                     <div>
-                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <Layers className="w-4 h-4 text-purple-500" />
                         <span>{t.topTypesTitle}</span>
                       </h4>
@@ -1873,7 +1873,7 @@ export const AnalyticsView: React.FC = () => {
                                     className={`px-2.5 py-1 rounded-md font-mono text-[11px] border ${
                                       isLight
                                         ? 'bg-white text-indigo-700 border-black/[0.06]'
-                                        : 'bg-[#18181C] text-indigo-300 border-white/[0.04]'
+                                        : 'bg-[var(--surface-secondary)] text-indigo-300 border-white/[0.04]'
                                     }`}
                                   >
                                     {item.tag}
@@ -1920,12 +1920,12 @@ export const AnalyticsView: React.FC = () => {
                   <div
                     className={`p-5 rounded-2xl border space-y-5 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06]'
+                        ? 'bg-[var(--canvas)] border-black/[0.06]'
                         : 'bg-[#151519] border-white/[0.04]'
                     }`}
                   >
                     <div>
-                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+                      <h4 className={`text-sm font-semibold flex items-center gap-2 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
                         <ArrowRightLeft className="w-4 h-4 text-pink-500" />
                         <span>{t.comparisonTitle}</span>
                       </h4>
@@ -1940,7 +1940,7 @@ export const AnalyticsView: React.FC = () => {
                         className={`p-4 rounded-xl border space-y-2 ${
                           isLight
                             ? 'bg-white border-indigo-200'
-                            : 'bg-[#18181C] border-indigo-500/20'
+                            : 'bg-[var(--surface-secondary)] border-indigo-500/20'
                         }`}
                       >
                         <label className="text-[11px] text-indigo-600 font-semibold block">
@@ -1951,8 +1951,8 @@ export const AnalyticsView: React.FC = () => {
                           onChange={(e) => setCompareA(e.target.value)}
                           className={`w-full px-3 py-2 rounded-lg border text-xs font-semibold focus:outline-none cursor-pointer ${
                             isLight
-                              ? 'bg-[#F8F9FA] text-zinc-900 border-black/[0.08]'
-                              : 'bg-[#121215] text-white border-white/[0.06]'
+                              ? 'bg-[var(--canvas)] text-zinc-900 border-black/[0.08]'
+                              : 'bg-[var(--surface)] text-white border-white/[0.06]'
                           }`}
                         >
                           <option value="Instagram">Instagram</option>
@@ -1967,7 +1967,7 @@ export const AnalyticsView: React.FC = () => {
                         className={`p-4 rounded-xl border space-y-2 ${
                           isLight
                             ? 'bg-white border-pink-200'
-                            : 'bg-[#18181C] border-pink-500/20'
+                            : 'bg-[var(--surface-secondary)] border-pink-500/20'
                         }`}
                       >
                         <label className="text-[11px] text-pink-600 font-semibold block">
@@ -1978,8 +1978,8 @@ export const AnalyticsView: React.FC = () => {
                           onChange={(e) => setCompareB(e.target.value)}
                           className={`w-full px-3 py-2 rounded-lg border text-xs font-semibold focus:outline-none cursor-pointer ${
                             isLight
-                              ? 'bg-[#F8F9FA] text-zinc-900 border-black/[0.08]'
-                              : 'bg-[#121215] text-white border-white/[0.06]'
+                              ? 'bg-[var(--canvas)] text-zinc-900 border-black/[0.08]'
+                              : 'bg-[var(--surface)] text-white border-white/[0.06]'
                           }`}
                         >
                           <option value="Instagram">Instagram</option>
@@ -1998,7 +1998,7 @@ export const AnalyticsView: React.FC = () => {
                         className={`p-4 rounded-xl border space-y-3 text-xs ${
                           isLight
                             ? 'bg-white border-black/[0.06]'
-                            : 'bg-[#121215] border-white/[0.04]'
+                            : 'bg-[var(--surface)] border-white/[0.04]'
                         }`}
                       >
                         <div className={`text-sm font-bold border-b pb-2 ${isLight ? 'text-indigo-700 border-black/[0.06]' : 'text-indigo-300 border-white/[0.06]'}`}>
@@ -2047,7 +2047,7 @@ export const AnalyticsView: React.FC = () => {
                         className={`p-4 rounded-xl border space-y-3 text-xs ${
                           isLight
                             ? 'bg-white border-black/[0.06]'
-                            : 'bg-[#121215] border-white/[0.04]'
+                            : 'bg-[var(--surface)] border-white/[0.04]'
                         }`}
                       >
                         <div className={`text-sm font-bold border-b pb-2 ${isLight ? 'text-pink-700 border-black/[0.06]' : 'text-pink-300 border-white/[0.06]'}`}>

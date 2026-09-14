@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useRef, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import {
@@ -55,7 +57,7 @@ export const SettingsModal: React.FC = () => {
   // Local exchange rate input state
   const [localRate, setLocalRate] = useState<string>(String(exchangeRate));
 
-  if (!isSettingsOpen) return null;
+
 
   const handleBackup = () => {
     exportToJsonFile(artists, deals);
@@ -100,21 +102,21 @@ export const SettingsModal: React.FC = () => {
     setIsResetConfirmOpen(false);
   };
 
-  return (
+  return <AnimatePresence>{isSettingsOpen && (
     <>
-      <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
-        <div
-          className={`w-full max-w-xl border rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150 transition-colors flex flex-col max-h-[90vh] ${
+      <NativeBackdrop className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in">
+        <NativePanel
+          className={`studio-dialog w-full max-w-xl border rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150 transition-colors flex flex-col max-h-[90vh] ${
             isLight
-              ? 'bg-white border-black/[0.08] text-[#1A1A1E]'
-              : 'bg-[#111113] border-white/[0.08] text-white'
+              ? 'bg-white border-black/[0.08] text-[var(--ink)]'
+              : 'bg-[var(--surface)] border-white/[0.08] text-white'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header with Navigation Tabs */}
           <div
             className={`px-6 py-3 border-b flex items-center justify-between shrink-0 ${
-              isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+              isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -206,8 +208,8 @@ export const SettingsModal: React.FC = () => {
                         theme === 'dark'
                           ? 'bg-indigo-500/10 border-indigo-500/50 text-indigo-300 ring-1 ring-indigo-500/30 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -224,8 +226,8 @@ export const SettingsModal: React.FC = () => {
                         theme === 'light'
                           ? 'bg-amber-50 border-amber-400 text-amber-900 ring-1 ring-amber-400/50 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -257,8 +259,8 @@ export const SettingsModal: React.FC = () => {
                         currency === 'USD'
                           ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400 ring-1 ring-emerald-500/30 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -275,8 +277,8 @@ export const SettingsModal: React.FC = () => {
                         currency === 'KZT'
                           ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400 ring-1 ring-emerald-500/30 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -291,8 +293,8 @@ export const SettingsModal: React.FC = () => {
                   <div
                     className={`p-3.5 rounded-xl border space-y-2 mt-2 ${
                       isLight
-                        ? 'bg-[#F8F9FA] border-black/[0.06]'
-                        : 'bg-[#18181C] border-white/[0.04]'
+                        ? 'bg-[var(--canvas)] border-black/[0.06]'
+                        : 'bg-[var(--surface-secondary)] border-white/[0.04]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -320,7 +322,7 @@ export const SettingsModal: React.FC = () => {
                         className={`w-28 px-2.5 py-1 rounded-lg border font-mono text-xs focus:outline-none focus:border-emerald-500 ${
                           isLight
                             ? 'bg-white border-black/[0.1] text-zinc-900 shadow-xs'
-                            : 'bg-[#111113] border-white/[0.1] text-white'
+                            : 'bg-[var(--surface)] border-white/[0.1] text-white'
                         }`}
                       />
                       <span className="font-mono font-bold text-xs text-zinc-400">₸ KZT</span>
@@ -351,8 +353,8 @@ export const SettingsModal: React.FC = () => {
                         lang === 'ru'
                           ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 ring-1 ring-emerald-500/20 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -369,8 +371,8 @@ export const SettingsModal: React.FC = () => {
                         lang === 'en'
                           ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 ring-1 ring-emerald-500/20 font-bold'
                           : isLight
-                          ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
-                          : 'bg-[#18181C] border-white/[0.06] text-zinc-400 hover:text-white'
+                          ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-700 hover:bg-black/[0.04]'
+                          : 'bg-[var(--surface-secondary)] border-white/[0.06] text-zinc-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -401,8 +403,8 @@ export const SettingsModal: React.FC = () => {
                       onClick={handleBackup}
                       className={`flex items-center gap-2 p-3 rounded-xl border transition text-left cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] border-black/[0.06] text-zinc-800'
-                          : 'bg-[#18181C] hover:bg-[#202028] border-white/[0.06] text-zinc-200'
+                          ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-800'
+                          : 'bg-[var(--surface-secondary)] hover:bg-[#202028] border-white/[0.06] text-zinc-200'
                       }`}
                     >
                       <Download className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -420,8 +422,8 @@ export const SettingsModal: React.FC = () => {
                       onClick={handleRestoreClick}
                       className={`flex items-center gap-2 p-3 rounded-xl border transition text-left cursor-pointer ${
                         isLight
-                          ? 'bg-[#F8F9FA] hover:bg-[#F1F3F5] border-black/[0.06] text-zinc-800'
-                          : 'bg-[#18181C] hover:bg-[#202028] border-white/[0.06] text-zinc-200'
+                          ? 'bg-[var(--canvas)] hover:bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-800'
+                          : 'bg-[var(--surface-secondary)] hover:bg-[#202028] border-white/[0.06] text-zinc-200'
                       }`}
                     >
                       <Upload className="w-4 h-4 text-cyan-500 shrink-0" />
@@ -438,7 +440,7 @@ export const SettingsModal: React.FC = () => {
                       className={`flex items-center gap-2 p-3 rounded-xl border transition text-left cursor-pointer ${
                         isLight
                           ? 'bg-amber-50/60 hover:bg-amber-50 border-amber-200 text-amber-900'
-                          : 'bg-[#18181C] hover:bg-[#202028] border-amber-500/20 text-amber-300'
+                          : 'bg-[var(--surface-secondary)] hover:bg-[#202028] border-amber-500/20 text-amber-300'
                       }`}
                     >
                       <RefreshCw className="w-4 h-4 text-amber-500 shrink-0" />
@@ -470,8 +472,8 @@ export const SettingsModal: React.FC = () => {
                 <div
                   className={`p-3 rounded-xl border text-[11px] flex items-center gap-2 ${
                     isLight
-                      ? 'bg-[#F8F9FA] border-black/[0.06] text-zinc-600'
-                      : 'bg-[#18181C] border-white/[0.04] text-zinc-400'
+                      ? 'bg-[var(--canvas)] border-black/[0.06] text-zinc-600'
+                      : 'bg-[var(--surface-secondary)] border-white/[0.04] text-zinc-400'
                   }`}
                 >
                   <span className="font-mono text-emerald-500">⌨</span>
@@ -487,7 +489,7 @@ export const SettingsModal: React.FC = () => {
           {/* Footer */}
           <div
             className={`px-6 py-3.5 border-t flex justify-end shrink-0 ${
-              isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+              isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
             }`}
           >
             <button
@@ -501,8 +503,8 @@ export const SettingsModal: React.FC = () => {
               {t.cancel}
             </button>
           </div>
-        </div>
-      </div>
+        </NativePanel>
+      </NativeBackdrop>
 
       {/* Wipe Confirmation Modal */}
       <ConfirmModal
@@ -528,5 +530,5 @@ export const SettingsModal: React.FC = () => {
         onClose={() => setIsResetConfirmOpen(false)}
       />
     </>
-  );
+  )}</AnimatePresence>;
 };

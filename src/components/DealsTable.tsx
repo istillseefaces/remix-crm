@@ -309,31 +309,31 @@ export const DealsTable: React.FC = () => {
   return (
     <>
       <div
-        className={`flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
-          isLight ? 'bg-[#F8F9FA]' : 'bg-[#0C0C0E]'
+        className={`studio-content flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
+          isLight ? 'bg-[var(--canvas)]' : 'bg-[var(--canvas)]'
         }`}
       >
         <div
-          className={`h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
+          className={`studio-panel h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
             isLight
               ? 'bg-white border-black/[0.06] shadow-xs'
-              : 'bg-[#111113]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
+              : 'bg-[var(--surface)]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
           }`}
         >
           {sortedDeals.length === 0 ? (
-            <div className="flex-1 flex flex-col items-center justify-center p-12 text-center">
+            <div className="studio-empty flex-1 flex flex-col items-center text-center">
               <div
                 className={`w-12 h-12 rounded-full border flex items-center justify-center mb-3 shadow-md ${
                   isLight
-                    ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-400'
-                    : 'bg-[#18181C] border-white/[0.08] text-zinc-500'
+                    ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-400'
+                    : 'bg-[var(--surface-secondary)] border-white/[0.08] text-zinc-500'
                 }`}
               >
                 <DollarSign className="w-6 h-6 text-cyan-400" />
               </div>
               <h3
                 className={`text-sm font-semibold mb-1 ${
-                  isLight ? 'text-[#1A1A1E]' : 'text-white'
+                  isLight ? 'text-[var(--ink)]' : 'text-white'
                 }`}
               >
                 {t.noResults}
@@ -347,7 +347,7 @@ export const DealsTable: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsNewDealModalOpen(true)}
-                className={`px-4 py-1.5 font-semibold text-xs rounded-full transition shadow-sm cursor-pointer active:scale-95 ${
+                className={`px-4 py-1.5 font-semibold text-xs rounded-full transition shadow-sm cursor-pointer active:opacity-80 ${
                   isLight
                     ? 'bg-black text-white hover:bg-black/90'
                     : 'bg-white text-black hover:bg-white/90'
@@ -363,8 +363,8 @@ export const DealsTable: React.FC = () => {
                   <thead
                     className={`sticky top-0 z-10 border-b uppercase tracking-wider text-[10px] select-none font-semibold shadow-xs ${
                       isLight
-                        ? 'bg-[#F8F9FA]/95 backdrop-blur-md border-black/[0.06] text-zinc-500'
-                        : 'bg-[#16161A]/95 backdrop-blur-md border-white/[0.06] text-white/40'
+                        ? 'bg-[var(--canvas)]/95 backdrop-blur-md border-black/[0.06] text-zinc-500'
+                        : 'bg-[var(--canvas)]/95 backdrop-blur-md border-white/[0.06] text-white/40'
                     }`}
                   >
                     <tr>
@@ -470,7 +470,7 @@ export const DealsTable: React.FC = () => {
                                     : 'bg-cyan-500/15 border-cyan-500/40 text-cyan-300 shadow-xs'
                                   : isLight
                                   ? 'bg-white border-black/[0.08] text-zinc-600 hover:text-black hover:border-black/[0.15]'
-                                  : 'bg-[#18181C] border-white/[0.08] text-white/60 hover:text-white hover:border-white/20'
+                                  : 'bg-[var(--surface-secondary)] border-white/[0.08] text-white/60 hover:text-white hover:border-white/20'
                               }`}
                               title={t.sortBy}
                             >
@@ -482,7 +482,7 @@ export const DealsTable: React.FC = () => {
                                 className={`absolute right-0 mt-1.5 w-44 rounded-xl border p-1 shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 normal-case tracking-normal ${
                                   isLight
                                     ? 'bg-white border-black/[0.08] text-zinc-800'
-                                    : 'bg-[#18181C] border-white/[0.1] text-white shadow-black/60'
+                                    : 'bg-[var(--surface-secondary)] border-white/[0.1] text-white shadow-black/60'
                                 }`}
                                 onClick={(e) => e.stopPropagation()}
                               >
@@ -570,7 +570,7 @@ export const DealsTable: React.FC = () => {
                           onDragOver={(e) => handleDragOver(e, deal.id)}
                           onDragEnd={handleDragEnd}
                           onDrop={(e) => handleDrop(e, deal.id)}
-                          className={`group transition duration-75 cursor-pointer ${
+                          className={`group transition duration-200 cursor-pointer ${
                             isDragged
                               ? 'opacity-40'
                               : isDragOver
@@ -610,13 +610,13 @@ export const DealsTable: React.FC = () => {
                         >
                           <div className="flex items-center gap-3">
                             <div
-                              className={`w-8 h-8 rounded-full bg-gradient-to-tr ${getAvatarGradient(
+                              className={`w-8 h-8 rounded-full studio-contact-avatar ${getAvatarGradient(
                                 deal.artistName
                               )} p-[1px] flex items-center justify-center shrink-0 shadow-sm`}
                             >
                               <div
                                 className={`w-full h-full rounded-full flex items-center justify-center font-bold text-[10px] ${
-                                  isLight ? 'bg-white text-zinc-900' : 'bg-[#111113] text-white'
+                                  isLight ? 'bg-white text-zinc-900' : 'bg-[var(--surface)] text-white'
                                 }`}
                               >
                                 {getInitials(deal.artistName)}
@@ -626,7 +626,7 @@ export const DealsTable: React.FC = () => {
                             <div
                               className={`font-semibold transition cursor-pointer truncate text-xs ${
                                 isLight
-                                  ? 'text-[#1A1A1E] hover:text-cyan-700'
+                                  ? 'text-[var(--ink)] hover:text-cyan-700'
                                   : 'text-white hover:text-cyan-300'
                               }`}
                               onClick={() => handleArtistClick(deal.artistName)}
@@ -774,7 +774,7 @@ export const DealsTable: React.FC = () => {
               <div
                 className={`mt-auto border-t px-4 py-3 flex items-center justify-between text-xs shrink-0 select-none ${
                   isLight
-                    ? 'bg-[#F8F9FA] border-black/[0.06] text-zinc-500'
+                    ? 'bg-[var(--canvas)] border-black/[0.06] text-zinc-500'
                     : 'bg-black/20 border-white/[0.04] text-white/40'
                 }`}
               >
@@ -784,7 +784,7 @@ export const DealsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       ⌘N
@@ -796,7 +796,7 @@ export const DealsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       /
@@ -808,7 +808,7 @@ export const DealsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       Esc
@@ -832,7 +832,7 @@ export const DealsTable: React.FC = () => {
               className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-30 px-4 py-2.5 rounded-2xl border shadow-2xl backdrop-blur-md flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-200 ${
                 isLight
                   ? 'bg-white/95 border-black/[0.1] text-zinc-900'
-                  : 'bg-[#18181C]/95 border-white/[0.12] text-white'
+                  : 'bg-[var(--surface-secondary)]/95 border-white/[0.12] text-white'
               }`}
             >
               {/* Selected Count & Total Amount */}

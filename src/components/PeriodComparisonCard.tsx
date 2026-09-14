@@ -256,7 +256,7 @@ export const PeriodComparisonCard: React.FC<PeriodComparisonCardProps> = ({
     <div
       className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 ${
         isLight
-          ? 'bg-[#F8F9FA] border-black/[0.06] shadow-xs'
+          ? 'bg-[var(--canvas)] border-black/[0.06] shadow-xs'
           : 'bg-[#151519] border-white/[0.04]'
       }`}
     >
@@ -273,7 +273,7 @@ export const PeriodComparisonCard: React.FC<PeriodComparisonCardProps> = ({
           <div>
             <h4
               className={`text-sm font-semibold tracking-tight ${
-                isLight ? 'text-[#1A1A1E]' : 'text-white'
+                isLight ? 'text-[var(--ink)]' : 'text-white'
               }`}
             >
               {t.periodComparisonTitle || 'Сравнение периодов (Period-over-Period)'}
@@ -318,7 +318,7 @@ export const PeriodComparisonCard: React.FC<PeriodComparisonCardProps> = ({
         className={`p-3 rounded-xl border mb-4 flex flex-wrap items-center justify-between gap-2.5 text-xs ${
           isLight
             ? 'bg-white border-black/[0.05]'
-            : 'bg-[#18181C] border-white/[0.04]'
+            : 'bg-[var(--surface-secondary)] border-white/[0.04]'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -370,7 +370,7 @@ export const PeriodComparisonCard: React.FC<PeriodComparisonCardProps> = ({
               className={`p-3.5 rounded-xl border flex flex-col justify-between transition-colors ${
                 isLight
                   ? 'bg-white border-black/[0.05] hover:border-black/[0.1]'
-                  : 'bg-[#18181C] border-white/[0.04] hover:border-white/[0.08]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.04] hover:border-white/[0.08]'
               }`}
             >
               {/* Card Header: Label & Icon */}
@@ -437,7 +437,7 @@ export const PeriodComparisonCard: React.FC<PeriodComparisonCardProps> = ({
       {/* Comparison Progress Bar & Summary Note */}
       <div
         className={`mt-4 p-3.5 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs ${
-          isLight ? 'bg-white border-black/[0.05]' : 'bg-[#18181C] border-white/[0.04]'
+          isLight ? 'bg-white border-black/[0.05]' : 'bg-[var(--surface-secondary)] border-white/[0.04]'
         }`}
       >
         <div className="flex items-center gap-2 min-w-0">

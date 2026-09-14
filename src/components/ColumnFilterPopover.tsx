@@ -83,7 +83,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
               className={`w-full px-2.5 py-1.5 text-xs rounded border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181C] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
             <div className="max-h-36 overflow-y-auto space-y-1 pr-1 text-xs">
@@ -234,7 +234,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
                 <span className="text-zinc-500">—</span>
@@ -249,7 +249,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
               </div>
@@ -335,7 +335,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
                 <span className="text-zinc-500">—</span>
@@ -350,7 +350,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
               </div>
@@ -404,7 +404,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-[11px] outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
                 <span className="text-zinc-500">—</span>
@@ -419,7 +419,7 @@ export const ColumnFilterPopover: React.FC<ColumnFilterPopoverProps> = ({
                     })
                   }
                   className={`w-1/2 px-2 py-1 rounded border text-[11px] outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181C] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
               </div>

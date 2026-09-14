@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React from 'react';
 import { AlertTriangle, Trash2, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -26,18 +28,18 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
   const { theme } = useApp();
   const isLight = theme === 'light';
 
-  if (!isOpen) return null;
 
-  return (
-    <div
+
+  return <AnimatePresence>{isOpen && (
+    <NativeBackdrop
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in"
       onClick={onClose}
     >
-      <div
+      <NativePanel
         className={`w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6 space-y-4 animate-in zoom-in-95 duration-150 text-xs border ${
           isLight
-            ? 'bg-white border-black/[0.08] text-[#1A1A1E]'
-            : 'bg-[#141418] border-white/[0.08] text-white'
+            ? 'bg-white border-black/[0.08] text-[var(--ink)]'
+            : 'bg-[var(--surface)] border-white/[0.08] text-white'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -57,7 +59,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
           </div>
 
           <div className="flex-1 min-w-0">
-            <h3 className={`text-sm font-semibold mb-1 ${isLight ? 'text-[#1A1A1E]' : 'text-white'}`}>
+            <h3 className={`text-sm font-semibold mb-1 ${isLight ? 'text-[var(--ink)]' : 'text-white'}`}>
               {title}
             </h3>
             <p className={`leading-relaxed ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
@@ -87,7 +89,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
             onClick={onClose}
             className={`px-4 py-2 rounded-lg text-xs font-medium border transition cursor-pointer ${
               isLight
-                ? 'bg-[#F1F3F5] hover:bg-black/[0.06] text-zinc-700 border-black/[0.08]'
+                ? 'bg-[var(--surface-secondary)] hover:bg-black/[0.06] text-zinc-700 border-black/[0.08]'
                 : 'bg-[#1F1F24] hover:bg-[#282830] text-zinc-300 border-white/[0.06]'
             }`}
           >
@@ -109,7 +111,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
             {confirmLabel}
           </button>
         </div>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react';
+import { NativeBackdrop, NativePanel } from './NativeMotion';
 import React, { useState } from 'react';
 import { X, Play, Square, Settings2, Sliders, Shield, Users, Radio } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -38,7 +40,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
     searchNewOldAccounts: false,
   }));
 
-  if (!isOpen) return null;
+
 
   const handleStart = () => {
     const existingUsernames = artists.map((a) => a.instagram || a.name).filter(Boolean);
@@ -50,13 +52,13 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
     stopParserTask();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div
-        className={`w-full max-w-2xl rounded-2xl shadow-2xl border flex flex-col max-h-[90vh] overflow-hidden ${
+  return <AnimatePresence>{isOpen && (
+    <NativeBackdrop className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+      <NativePanel
+        className={`studio-dialog w-full max-w-2xl rounded-2xl shadow-2xl border flex flex-col max-h-[90vh] overflow-hidden ${
           isLight
             ? 'bg-white border-zinc-200 text-zinc-900'
-            : 'bg-[#121215] border-white/10 text-white'
+            : 'bg-[var(--surface)] border-white/10 text-white'
         }`}
       >
         {/* Header */}
@@ -89,7 +91,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
               className={`w-full px-3 py-2 rounded-xl border transition outline-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             >
               {accounts.map((acc) => (
@@ -111,7 +113,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
               className={`w-full px-3 py-2 rounded-xl border transition outline-none resize-none ${
                 isLight
                   ? 'bg-zinc-100 border-zinc-300 text-zinc-900 focus:border-indigo-500'
-                  : 'bg-[#18181D] border-white/10 text-white focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] border-white/10 text-white focus:border-indigo-500'
               }`}
             />
             <span className="text-[11px] text-zinc-400">
@@ -132,7 +134,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
                 <label
                   key={item.key}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl border cursor-pointer transition ${
-                    isLight ? 'bg-zinc-50 border-zinc-200 hover:bg-zinc-100' : 'bg-[#16161A] border-white/5 hover:bg-white/5'
+                    isLight ? 'bg-zinc-50 border-zinc-200 hover:bg-zinc-100' : 'bg-[var(--canvas)] border-white/5 hover:bg-white/5'
                   }`}
                 >
                   <input
@@ -165,7 +167,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
                       ? 'bg-indigo-600 border-indigo-500 text-white font-medium shadow-sm'
                       : isLight
                       ? 'bg-zinc-50 border-zinc-200 text-zinc-700 hover:bg-zinc-100'
-                      : 'bg-[#16161A] border-white/5 text-zinc-400 hover:text-white'
+                      : 'bg-[var(--canvas)] border-white/5 text-zinc-400 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -185,7 +187,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
                   value={config.minFollowers}
                   onChange={(e) => setConfig({ ...config, minFollowers: Number(e.target.value) })}
                   className={`w-full px-3 py-2 rounded-xl border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181D] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
               </div>
@@ -197,7 +199,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
                   value={config.maxFollowers}
                   onChange={(e) => setConfig({ ...config, maxFollowers: Number(e.target.value) })}
                   className={`w-full px-3 py-2 rounded-xl border text-xs outline-none ${
-                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[#18181D] border-white/10'
+                    isLight ? 'bg-zinc-100 border-zinc-300' : 'bg-[var(--surface-secondary)] border-white/10'
                   }`}
                 />
               </div>
@@ -216,7 +218,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
                 <label
                   key={item.key}
                   className={`flex items-center gap-2.5 p-2 rounded-xl border cursor-pointer transition ${
-                    isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-[#16161A] border-white/5'
+                    isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-[var(--canvas)] border-white/5'
                   }`}
                 >
                   <input
@@ -265,7 +267,7 @@ export const ParserSettingsModal: React.FC<ParserSettingsModalProps> = ({ isOpen
             )}
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </NativePanel>
+    </NativeBackdrop>
+  )}</AnimatePresence>;
 };

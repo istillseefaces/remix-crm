@@ -184,7 +184,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Theme (dark | light)
   const [theme, setThemeState] = useState<Theme>(() => {
     const saved = localStorage.getItem('verse_crm_theme');
-    return (saved === 'light' || saved === 'dark') ? saved : 'dark';
+    return (saved === 'light' || saved === 'dark') ? saved : 'light';
   });
 
   const setTheme = (newTheme: Theme) => {

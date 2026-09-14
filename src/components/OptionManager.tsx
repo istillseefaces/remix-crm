@@ -189,8 +189,8 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
                   ? 'bg-black text-white border-black font-semibold shadow-xs'
                   : 'bg-white text-black border-white font-semibold shadow-xs'
                 : isLight
-                ? 'bg-[#F1F3F5] text-zinc-700 border-black/[0.06] hover:bg-black/[0.04]'
-                : 'bg-[#18181C] text-zinc-400 border-white/[0.06] hover:text-white hover:bg-white/[0.04]'
+                ? 'bg-[var(--surface-secondary)] text-zinc-700 border-black/[0.06] hover:bg-black/[0.04]'
+                : 'bg-[var(--surface-secondary)] text-zinc-400 border-white/[0.06] hover:text-white hover:bg-white/[0.04]'
             }`}
           >
             {cat.label}
@@ -201,7 +201,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
       {/* Options List with Inline CRUD */}
       <div
         className={`border rounded-2xl p-3.5 space-y-2.5 ${
-          isLight ? 'bg-[#F8F9FA] border-black/[0.06]' : 'bg-[#141418] border-white/[0.06]'
+          isLight ? 'bg-[var(--canvas)] border-black/[0.06]' : 'bg-[var(--surface)] border-white/[0.06]'
         }`}
       >
         <div className="flex items-center justify-between px-1">
@@ -242,7 +242,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
                         className={`flex-1 px-2.5 py-1 text-xs rounded-lg border focus:outline-none ${
                           isLight
                             ? 'bg-white text-zinc-900 border-black/20 focus:border-indigo-500'
-                            : 'bg-[#121215] text-white border-white/20 focus:border-indigo-500'
+                            : 'bg-[var(--surface)] text-white border-white/20 focus:border-indigo-500'
                         }`}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter') handleSaveEdit(opt.id);
@@ -295,7 +295,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
                   className={`flex items-center justify-between p-2 rounded-xl border transition ${
                     isLight
                       ? 'bg-white border-black/[0.06] hover:border-black/15'
-                      : 'bg-[#18181C] border-white/[0.04] hover:border-white/10'
+                      : 'bg-[var(--surface-secondary)] border-white/[0.04] hover:border-white/10'
                   }`}
                 >
                   {/* Badge Preview and Usage Count */}
@@ -364,7 +364,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
       <form
         onSubmit={handleAddOption}
         className={`border rounded-2xl p-4 space-y-3 ${
-          isLight ? 'bg-white border-black/[0.08]' : 'bg-[#18181C] border-white/[0.06]'
+          isLight ? 'bg-white border-black/[0.08]' : 'bg-[var(--surface-secondary)] border-white/[0.06]'
         }`}
       >
         <div className="font-semibold text-xs flex items-center gap-1.5">
@@ -380,8 +380,8 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
             placeholder={t.optionNamePlaceholder || 'Название варианта (например, Hyperpop, В работе...)'}
             className={`flex-1 px-3 py-1.5 rounded-xl border text-xs focus:outline-none focus:border-indigo-500 ${
               isLight
-                ? 'bg-[#F1F3F5] text-zinc-900 border-black/[0.08]'
-                : 'bg-[#111113] text-white border-white/[0.1]'
+                ? 'bg-[var(--surface-secondary)] text-zinc-900 border-black/[0.08]'
+                : 'bg-[var(--surface)] text-white border-white/[0.1]'
             }`}
           />
 
@@ -415,7 +415,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
                   style={{ backgroundColor: p.hex }}
                   className={`w-5 h-5 rounded-full transition-all cursor-pointer ${
                     isSelected
-                      ? 'ring-2 ring-white ring-offset-2 ring-offset-[#111113] scale-110 shadow-md'
+                      ? 'ring-2 ring-white ring-offset-2 ring-offset-[var(--surface)] scale-110 shadow-md'
                       : 'opacity-70 hover:opacity-100 hover:scale-105'
                   }`}
                   title={p.labelRu}
@@ -444,7 +444,7 @@ const OptionManagerContent: React.FC<OptionManagerProps> = ({ initialCategory = 
           className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all duration-150 flex items-center gap-2 cursor-pointer shadow-xs ${
             isLight
               ? 'bg-white hover:bg-red-50 text-zinc-700 hover:text-red-600 border-black/[0.1] hover:border-red-300 active:scale-[0.98]'
-              : 'bg-[#18181C] hover:bg-red-500/10 text-zinc-300 hover:text-red-300 border-white/[0.08] hover:border-red-500/30 active:scale-[0.98]'
+              : 'bg-[var(--surface-secondary)] hover:bg-red-500/10 text-zinc-300 hover:text-red-300 border-white/[0.08] hover:border-red-500/30 active:scale-[0.98]'
           }`}
         >
           <RefreshCw className="w-3.5 h-3.5 shrink-0 opacity-70 group-hover:rotate-180 transition-transform duration-300" />

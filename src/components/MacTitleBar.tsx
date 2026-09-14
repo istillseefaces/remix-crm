@@ -29,7 +29,7 @@ export const MacTitleBar: React.FC = () => {
   } = useApp();
 
   return (
-    <header className="sticky top-0 z-30 bg-[#0C0C0E]/95 backdrop-blur-md border-b border-white/[0.06] select-none">
+    <header className="sticky top-0 z-30 bg-[var(--canvas)]/95 backdrop-blur-md border-b border-white/[0.06] select-none">
       {/* Top macOS App Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.04] text-xs">
         <div className="flex items-center gap-3">
@@ -63,9 +63,9 @@ export const MacTitleBar: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t.searchPlaceholder}
-              className="w-full pl-8 pr-12 py-1.5 bg-[#18181C] hover:bg-[#1C1C22] focus:bg-[#18181C] text-xs text-zinc-200 placeholder-zinc-500 rounded-lg border border-white/[0.06] focus:border-emerald-500/40 focus:outline-none transition"
+              className="w-full pl-8 pr-12 py-1.5 bg-[var(--surface-secondary)] hover:bg-[#1C1C22] focus:bg-[var(--surface-secondary)] text-xs text-zinc-200 placeholder-zinc-500 rounded-lg border border-white/[0.06] focus:border-emerald-500/40 focus:outline-none transition"
             />
-            <div className="absolute right-2.5 flex items-center gap-1 px-1.5 py-0.5 bg-[#111113] rounded text-[10px] text-zinc-500 font-mono border border-white/[0.04] pointer-events-none">
+            <div className="absolute right-2.5 flex items-center gap-1 px-1.5 py-0.5 bg-[var(--surface)] rounded text-[10px] text-zinc-500 font-mono border border-white/[0.04] pointer-events-none">
               <Command className="w-2.5 h-2.5" />
               <span>/</span>
             </div>
@@ -78,7 +78,7 @@ export const MacTitleBar: React.FC = () => {
           <button
             id="lang-toggle-btn"
             onClick={() => setLang(lang === 'ru' ? 'en' : 'ru')}
-            className="px-2 py-1 rounded-md bg-[#18181C] hover:bg-[#202026] text-[11px] font-medium text-zinc-300 border border-white/[0.06] transition flex items-center gap-1"
+            className="px-2 py-1 rounded-md bg-[var(--surface-secondary)] hover:bg-[var(--hover)] text-[11px] font-medium text-zinc-300 border border-white/[0.06] transition flex items-center gap-1"
             title="Toggle Language (RU / EN)"
           >
             <span className={lang === 'ru' ? 'text-emerald-400 font-semibold' : 'text-zinc-500'}>RU</span>
@@ -90,7 +90,7 @@ export const MacTitleBar: React.FC = () => {
           <button
             id="export-import-btn"
             onClick={() => setIsImportExportOpen(true)}
-            className="px-2.5 py-1 rounded-md bg-[#18181C] hover:bg-[#202026] text-xs text-zinc-300 border border-white/[0.06] transition flex items-center gap-1.5"
+            className="px-2.5 py-1 rounded-md bg-[var(--surface-secondary)] hover:bg-[var(--hover)] text-xs text-zinc-300 border border-white/[0.06] transition flex items-center gap-1.5"
             title={t.exportImport}
           >
             <Download className="w-3.5 h-3.5 text-zinc-400" />
@@ -101,7 +101,7 @@ export const MacTitleBar: React.FC = () => {
           <button
             id="settings-btn"
             onClick={() => setIsSettingsOpen(true)}
-            className="p-1.5 rounded-md bg-[#18181C] hover:bg-[#202026] text-zinc-300 border border-white/[0.06] transition"
+            className="p-1.5 rounded-md bg-[var(--surface-secondary)] hover:bg-[var(--hover)] text-zinc-300 border border-white/[0.06] transition"
             title={t.settings}
           >
             <SettingsIcon className="w-3.5 h-3.5 text-zinc-400" />
@@ -112,7 +112,7 @@ export const MacTitleBar: React.FC = () => {
       {/* Navigation Subheader: Tabs & Add Action */}
       <div className="flex items-center justify-between px-4 py-2">
         {/* Main Tabs */}
-        <div className="flex items-center gap-1 bg-[#111113] p-1 rounded-lg border border-white/[0.06]">
+        <div className="flex items-center gap-1 bg-[var(--surface)] p-1 rounded-lg border border-white/[0.06]">
           <button
             id="tab-artists-btn"
             onClick={() => setActiveTab('artists')}

@@ -109,7 +109,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
     <div
       className={`p-4 sm:p-5 rounded-2xl border flex flex-col justify-between relative transition-all duration-200 ${
         isLight
-          ? 'bg-[#F8F9FA] border-black/[0.06] shadow-xs'
+          ? 'bg-[var(--canvas)] border-black/[0.06] shadow-xs'
           : 'bg-[#151519] border-white/[0.04]'
       }`}
     >
@@ -127,7 +127,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
             <div>
               <h4
                 className={`text-sm font-semibold tracking-tight ${
-                  isLight ? 'text-[#1A1A1E]' : 'text-white'
+                  isLight ? 'text-[var(--ink)]' : 'text-white'
                 }`}
               >
                 {t.financialGoalsTitle || 'Финансовые цели'}
@@ -144,7 +144,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
               className={`flex items-center p-0.5 rounded-lg border text-[10px] font-medium ${
                 isLight
                   ? 'bg-white border-black/[0.06]'
-                  : 'bg-[#18181C] border-white/[0.06]'
+                  : 'bg-[var(--surface-secondary)] border-white/[0.06]'
               }`}
             >
               <button
@@ -199,7 +199,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
               className={`p-1.5 rounded-lg border text-xs transition cursor-pointer ${
                 isLight
                   ? 'bg-white hover:bg-black/[0.04] text-zinc-600 border-black/[0.06]'
-                  : 'bg-[#18181C] hover:bg-white/[0.06] text-zinc-400 border-white/[0.06]'
+                  : 'bg-[var(--surface-secondary)] hover:bg-white/[0.06] text-zinc-400 border-white/[0.06]'
               }`}
             >
               <Edit3 className="w-3.5 h-3.5" />
@@ -213,7 +213,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
             className={`mb-4 p-3 rounded-xl border flex flex-col gap-2 ${
               isLight
                 ? 'bg-white border-indigo-200'
-                : 'bg-[#18181C] border-indigo-500/30'
+                : 'bg-[var(--surface-secondary)] border-indigo-500/30'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -246,7 +246,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
                 className={`flex-1 px-3 py-1.5 rounded-lg border text-xs font-mono font-bold focus:outline-none ${
                   isLight
                     ? 'bg-zinc-50 border-black/[0.1] text-zinc-900 focus:border-indigo-500'
-                    : 'bg-[#111113] border-white/[0.08] text-white focus:border-indigo-500'
+                    : 'bg-[var(--surface)] border-white/[0.08] text-white focus:border-indigo-500'
                 }`}
               />
               <button
@@ -270,7 +270,7 @@ export const FinancialGoalsCard: React.FC<FinancialGoalsCardProps> = ({
                   isCompleted
                     ? 'text-emerald-500'
                     : isLight
-                    ? 'text-[#1A1A1E]'
+                    ? 'text-[var(--ink)]'
                     : 'text-white'
                 }`}
               >

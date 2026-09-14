@@ -412,15 +412,15 @@ export const ArtistsTable: React.FC = () => {
   return (
     <>
       <div
-        className={`flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
-          isLight ? 'bg-[#F8F9FA]' : 'bg-[#0C0C0E]'
+        className={`studio-content flex-1 overflow-hidden p-3 sm:p-4 lg:p-6 flex flex-col min-h-0 relative transition-colors duration-150 ${
+          isLight ? 'bg-[var(--canvas)]' : 'bg-[var(--canvas)]'
         }`}
       >
         <div
-          className={`h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
+          className={`studio-panel h-full border rounded-2xl overflow-hidden flex flex-col relative transition-colors duration-150 ${
             isLight
               ? 'bg-white border-black/[0.06] shadow-xs'
-              : 'bg-[#111113]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
+              : 'bg-[var(--surface)]/60 border-white/[0.04] backdrop-blur-sm shadow-2xl'
           }`}
         >
           {/* Top Sub-Bar: View Mode (All / Trash) & Active Column Filters notice */}
@@ -429,17 +429,17 @@ export const ArtistsTable: React.FC = () => {
               isLight
                 ? crmViewMode === 'trash'
                   ? 'bg-red-50/60 border-red-200/80'
-                  : 'bg-[#F8F9FA]/80 border-black/[0.06]'
+                  : 'bg-[var(--canvas)]/80 border-black/[0.06]'
                 : crmViewMode === 'trash'
                 ? 'bg-red-950/20 border-red-500/20'
-                : 'bg-[#141418]/60 border-white/[0.04]'
+                : 'bg-[var(--surface)]/60 border-white/[0.04]'
             }`}
           >
             {/* View Mode Switcher */}
             <div className="flex items-center gap-2">
               <div
                 className={`p-0.5 rounded-xl border flex items-center gap-1 ${
-                  isLight ? 'bg-white border-black/[0.08]' : 'bg-[#18181C] border-white/[0.08]'
+                  isLight ? 'bg-white border-black/[0.08]' : 'bg-[var(--surface-secondary)] border-white/[0.08]'
                 }`}
               >
                 <button
@@ -529,19 +529,19 @@ export const ArtistsTable: React.FC = () => {
           </div>
 
           {sortedArtists.length === 0 ? (
-            <div className="flex-1 flex flex-col items-center justify-center p-12 text-center">
+            <div className="studio-empty flex-1 flex flex-col items-center text-center">
               <div
                 className={`w-12 h-12 rounded-full border flex items-center justify-center mb-3 shadow-md ${
                   isLight
-                    ? 'bg-[#F1F3F5] border-black/[0.06] text-zinc-400'
-                    : 'bg-[#18181C] border-white/[0.08] text-zinc-500'
+                    ? 'bg-[var(--surface-secondary)] border-black/[0.06] text-zinc-400'
+                    : 'bg-[var(--surface-secondary)] border-white/[0.08] text-zinc-500'
                 }`}
               >
-                <Sparkles className="w-6 h-6 text-emerald-400" />
+                <Users className="w-6 h-6 text-zinc-400" strokeWidth={1.4} />
               </div>
               <h3
                 className={`text-sm font-semibold mb-1 ${
-                  isLight ? 'text-[#1A1A1E]' : 'text-white'
+                  isLight ? 'text-[var(--ink)]' : 'text-white'
                 }`}
               >
                 {t.noResults}
@@ -574,8 +574,8 @@ export const ArtistsTable: React.FC = () => {
                   <thead
                     className={`sticky top-0 z-20 backdrop-blur-md border-b select-none ${
                       isLight
-                        ? 'bg-[#F8F9FA]/95 border-black/[0.06] text-zinc-600'
-                        : 'bg-[#141418]/95 border-white/[0.04] text-white/50'
+                        ? 'bg-[var(--canvas)]/95 border-black/[0.06] text-zinc-600'
+                        : 'bg-[var(--surface)]/95 border-white/[0.04] text-white/50'
                     }`}
                   >
                     <tr>
@@ -845,7 +845,7 @@ export const ArtistsTable: React.FC = () => {
                                     : 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300 shadow-xs'
                                   : isLight
                                   ? 'bg-white border-black/[0.08] text-zinc-600 hover:text-black hover:border-black/[0.15]'
-                                  : 'bg-[#18181C] border-white/[0.08] text-white/60 hover:text-white hover:border-white/20'
+                                  : 'bg-[var(--surface-secondary)] border-white/[0.08] text-white/60 hover:text-white hover:border-white/20'
                               }`}
                               title={t.sortBy}
                             >
@@ -857,7 +857,7 @@ export const ArtistsTable: React.FC = () => {
                                 className={`absolute right-0 mt-1.5 w-44 rounded-xl border p-1 shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 normal-case tracking-normal ${
                                   isLight
                                     ? 'bg-white border-black/[0.08] text-zinc-800'
-                                    : 'bg-[#18181C] border-white/[0.1] text-white shadow-black/60'
+                                    : 'bg-[var(--surface-secondary)] border-white/[0.1] text-white shadow-black/60'
                                 }`}
                                 onClick={(e) => e.stopPropagation()}
                               >
@@ -964,7 +964,7 @@ export const ArtistsTable: React.FC = () => {
                           onDrop={(e) => handleDrop(e, artist.id)}
                           onContextMenu={(e) => handleContextMenu(e, artist)}
                           onClick={() => setActiveArtistId(artist.id)}
-                          className={`group transition-colors duration-75 cursor-pointer ${
+                          className={`group transition-colors duration-200 cursor-pointer ${
                             isDragged
                               ? 'opacity-40'
                               : isDragOver
@@ -995,7 +995,7 @@ export const ArtistsTable: React.FC = () => {
                           <td className="py-3 px-4 whitespace-nowrap">
                             <div className="flex items-center gap-2.5">
                               <div
-                                className={`w-7 h-7 rounded-full bg-gradient-to-tr ${getAvatarGradient(
+                                className={`w-7 h-7 rounded-full studio-contact-avatar ${getAvatarGradient(
                                   artist.name
                                 )} flex items-center justify-center font-bold text-[10px] text-white shrink-0 shadow-xs`}
                               >
@@ -1021,7 +1021,7 @@ export const ArtistsTable: React.FC = () => {
                                       className={`px-1.5 py-0.5 rounded text-xs border focus:outline-none ${
                                         isLight
                                           ? 'bg-white text-zinc-900 border-black/20'
-                                          : 'bg-[#18181C] text-white border-white/20'
+                                          : 'bg-[var(--surface-secondary)] text-white border-white/20'
                                       }`}
                                     />
                                     <button
@@ -1043,7 +1043,7 @@ export const ArtistsTable: React.FC = () => {
                                     }}
                                     className={`font-semibold tracking-tight text-xs truncate max-w-[180px] sm:max-w-[220px] ${
                                       isLight
-                                        ? 'text-[#1A1A1E] group-hover:text-indigo-600'
+                                        ? 'text-[var(--ink)] group-hover:text-indigo-600'
                                         : 'text-white group-hover:text-indigo-400'
                                     }`}
                                     title="Double click to edit"
@@ -1089,8 +1089,8 @@ export const ArtistsTable: React.FC = () => {
                                     onClick={() => setSelectedTagFilter(tag)}
                                     className={`px-2 py-0.5 rounded-full text-[10px] border transition font-mono cursor-pointer ${
                                       isLight
-                                        ? 'bg-[#F1F3F5] hover:bg-indigo-50 hover:text-indigo-700 text-zinc-700 border-black/[0.06]'
-                                        : 'bg-[#18181C] hover:bg-indigo-500/20 hover:text-indigo-300 text-white/60 border-white/[0.04]'
+                                        ? 'bg-[var(--surface-secondary)] hover:bg-indigo-50 hover:text-indigo-700 text-zinc-700 border-black/[0.06]'
+                                        : 'bg-[var(--surface-secondary)] hover:bg-indigo-500/20 hover:text-indigo-300 text-white/60 border-white/[0.04]'
                                     }`}
                                     title={`Click to filter by "${tag}"`}
                                   >
@@ -1166,8 +1166,8 @@ export const ArtistsTable: React.FC = () => {
                             <div
                               className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full border ${
                                 isLight
-                                  ? 'bg-[#F1F3F5] border-black/[0.06]'
-                                  : 'bg-[#18181C] border-white/[0.04]'
+                                  ? 'bg-[var(--surface-secondary)] border-black/[0.06]'
+                                  : 'bg-[var(--surface-secondary)] border-white/[0.04]'
                               }`}
                             >
                               <button
@@ -1340,7 +1340,7 @@ export const ArtistsTable: React.FC = () => {
               <div
                 className={`mt-auto border-t px-4 py-3 flex items-center justify-between text-xs shrink-0 select-none ${
                   isLight
-                    ? 'bg-[#F8F9FA] border-black/[0.06] text-zinc-500'
+                    ? 'bg-[var(--canvas)] border-black/[0.06] text-zinc-500'
                     : 'bg-black/20 border-white/[0.04] text-white/40'
                 }`}
               >
@@ -1350,7 +1350,7 @@ export const ArtistsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       ⌘N
@@ -1362,7 +1362,7 @@ export const ArtistsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       /
@@ -1374,7 +1374,7 @@ export const ArtistsTable: React.FC = () => {
                       className={`px-1.5 py-0.5 border rounded font-mono text-[10px] ${
                         isLight
                           ? 'bg-white border-black/[0.08] text-zinc-700'
-                          : 'bg-[#18181C] border-white/10 text-white/70'
+                          : 'bg-[var(--surface-secondary)] border-white/10 text-white/70'
                       }`}
                     >
                       Esc
@@ -1630,10 +1630,10 @@ export const ArtistsTable: React.FC = () => {
             zIndex: 99999,
           }}
           onClick={(e) => e.stopPropagation()}
-          className={`w-56 rounded-xl border p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-100 select-none ${
+          className={`w-56 rounded-xl border p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-250 select-none ${
             isLight
               ? 'bg-white/95 border-black/[0.1] text-zinc-800 shadow-black/15'
-              : 'bg-[#141418]/95 border-white/10 text-zinc-100 shadow-black/80'
+              : 'bg-[var(--surface)]/95 border-white/10 text-zinc-100 shadow-black/80'
           }`}
         >
           <div className={`px-2.5 py-1.5 text-[10px] font-semibold tracking-wider uppercase border-b mb-1 flex items-center justify-between ${

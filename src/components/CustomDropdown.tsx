@@ -250,8 +250,8 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
           onClick={handleToggle}
           className={`w-full max-w-full overflow-hidden px-2 py-1 rounded-lg border text-xs font-medium flex items-center justify-between gap-1.5 transition cursor-pointer select-none ${
             isLight
-              ? 'bg-[#F1F3F5] text-zinc-800 border-black/[0.06] hover:border-black/20'
-              : 'bg-[#18181C] text-zinc-200 border-white/[0.06] hover:border-white/20'
+              ? 'bg-[var(--surface-secondary)] text-zinc-800 border-black/[0.06] hover:border-black/20'
+              : 'bg-[var(--surface-secondary)] text-zinc-200 border-white/[0.06] hover:border-white/20'
           } ${isOpen ? 'ring-2 ring-indigo-500/30' : ''} ${buttonClassName}`}
         >
           <div className="flex items-center gap-1.5 min-w-0 flex-1 truncate">
@@ -281,7 +281,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         className={`w-full px-3 py-2 rounded-lg border text-xs font-medium flex items-center justify-between gap-2 transition cursor-pointer select-none ${
           isLight
             ? 'bg-white text-zinc-900 border-black/[0.1] hover:border-black/30 focus:border-black/40'
-            : 'bg-[#18181C] text-zinc-100 border-white/[0.08] hover:border-white/20 focus:border-white/30'
+            : 'bg-[var(--surface-secondary)] text-zinc-100 border-white/[0.08] hover:border-white/20 focus:border-white/30'
         } ${isOpen ? 'ring-2 ring-indigo-500/30' : ''} ${buttonClassName}`}
       >
         <div className="flex items-center gap-2 truncate">
@@ -314,10 +314,10 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         zIndex: 99999,
       }}
       onClick={(e) => e.stopPropagation()}
-      className={`rounded-xl shadow-2xl overflow-hidden border backdrop-blur-xl animate-in fade-in zoom-in-95 duration-100 ${
+      className={`rounded-xl shadow-2xl overflow-hidden border backdrop-blur-xl animate-in fade-in zoom-in-95 duration-250 ${
         isLight
           ? 'bg-white/98 border-black/[0.1] text-zinc-900 shadow-black/15'
-          : 'bg-[#121215]/98 border-white/10 text-zinc-100 shadow-black/80'
+          : 'bg-[var(--surface)]/98 border-white/10 text-zinc-100 shadow-black/80'
       } ${menuClassName}`}
     >
       {!isCreating ? (
@@ -455,7 +455,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
               className={`w-full px-2.5 py-1 rounded-md text-xs border focus:outline-none ${
                 isLight
                   ? 'bg-white text-zinc-900 border-black/15 focus:border-indigo-500'
-                  : 'bg-[#18181C] text-white border-white/10 focus:border-indigo-500'
+                  : 'bg-[var(--surface-secondary)] text-white border-white/10 focus:border-indigo-500'
               }`}
             />
 
