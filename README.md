@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🚀 Remix CRM
 
-# Run and deploy your AI Studio app
+A modern Customer Relationship Management (CRM) application built with Remix, TypeScript, and modern web technologies.
 
-This contains everything you need to run your app locally.
+## 📌 Overview
 
-View your app in AI Studio: https://ai.studio/apps/0da24c97-93eb-4dcd-988d-59c7be204967
+Remix CRM is a full-stack CRM platform designed to help businesses manage customers, contacts, and internal workflows through a clean and responsive interface.
 
-## Run Locally
+The application focuses on performance, type safety, and scalable architecture using Remix's server-side rendering and data loading capabilities.
 
-**Prerequisites:**  Node.js
+## ✨ Features
 
+- 👥 Customer management
+- 📇 Contact organization
+- 🔍 Search and filtering
+- 📊 Dashboard analytics
+- 🔐 Authentication system
+- ⚡ Server-side rendering with Remix
+- 🎨 Responsive UI
+- 🗄️ Database integration
+- 🛡️ Type-safe development with TypeScript
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠 Tech Stack
+
+### Frontend
+- Remix
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+- Remix loaders & actions
+- Node.js
+- Database ORM
+
+### Tools
+- ESLint
+- Prettier
+- Git
+
+## 📂 Project Structure
